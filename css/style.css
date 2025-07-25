@@ -1,9 +1,15 @@
-/* ---------------- NAV BAR ---------------- */
+/* ===== BODY ===== */
+body {
+    overflow: hidden;
+}
+
+/* ===== NAV BAR ===== */
 #nav-bar {
     height: 56px;
     max-height: 56px;
     overflow: hidden;
-    position: relative;
+    background: #181818;
+    z-index: 1030;
 }
 
 #nav-bar .navbar {
@@ -15,7 +21,6 @@
     padding-bottom: 0 !important;
 }
 
-/* ---------------- USER ICON ---------------- */
 .user-icon {
     cursor: pointer;
     transition: transform 0.2s ease;
@@ -25,7 +30,6 @@
     transform: scale(1.05);
 }
 
-/* ---------------- ROUNDED PILL ---------------- */
 .rounded-left-pill {
     border-radius: 50rem 0 0 50rem;
 }
@@ -34,57 +38,54 @@
     border-radius: 0 50rem 50rem 0;
 }
 
-/* ---------------- INPUT 기본 스타일 ---------------- */
+/* ===== NAV/SEARCH INPUT ===== */
 input.form-control {
     border: 1px solid #404040;
-    padding-left: 12px; /* 기본 padding, 아이콘 숨김 시 왼쪽 끝으로 */
-    transition: padding 0.2s ease;
+    padding-left: 12px;
+    transition: padding 0.2s;
     background-color: #121212;
-    color: white;
+    color: #fff;
 }
 
-/* 포커스 시 파란 테두리만 추가 */
 input.form-control:focus {
     border: 1px solid #296fbe;
     outline: none;
     box-shadow: none;
 }
 
-/* placeholder 스타일 */
 input.form-control::placeholder {
     color: #ccc;
 }
 
-/* ---------------- 아이콘 동작 ---------------- */
 .search-icon {
     position: absolute;
     left: 12px;
     top: 50%;
     transform: translateY(-50%);
     opacity: 0;
-    transition: opacity 0.2s ease;
+    transition: opacity 0.2s;
     color: #ccc;
     pointer-events: none;
 }
 
-/* form에 포커스 들어오면: 아이콘 등장 + padding-left 증가 */
 form:focus-within .search-icon {
     opacity: 1;
 }
 
 form:focus-within input.form-control {
-    padding-left: 40px; /* 아이콘 공간 확보 */
+    padding-left: 40px;
 }
 
-/* ---------------- BUTTONS ---------------- */
+/* ===== BUTTONS ===== */
 .btn-dark-grey {
     background-color: #303030;
-    color: white;
+    color: #fff;
     border: none;
 }
 
 .btn-dark-grey-none {
-    color: white;
+    background: none;
+    color: #fff;
     border: none;
 }
 
@@ -102,14 +103,213 @@ form:focus-within input.form-control {
     box-shadow: none !important;
 }
 
-/* ---------------- FONT ---------------- */
 .fs-5h {
     font-size: 1.125rem;
 }
 
-/* ---------------- MOBILE SEARCH BUTTON 위치 ---------------- */
-.mobile-search-btn-wrapper {
-    position: absolute;
-    left: 45%;
-    transform: translateX(-50%);
+/* ===== SIDEBAR ===== */
+.sidebar {
+    background: #181818;
+    color: #fff;
+    height: calc(100vh - 56px);
+    overflow-y: scroll;
+    max-width: 250px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar ul {
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.sidebar .sidebar-item a {
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 40px;
+    font-size: 0.93rem;
+}
+
+.sidebar .sidebar-item a:hover,
+.sidebar .sidebar-item.active a {
+    background: #303030;
+    color: #fff;
+}
+
+.sidebar .bi {
+    color: #fff;
+    font-size: 1.25rem;
+}
+
+.menu-text {
+    font-size: 0.93rem;
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+.sidebar-section-title {
+    font-size: 0.96rem !important;
+    font-weight: 700 !important;
+    color: #DDD !important;
+    user-select: none;
+    margin: 8px 0;
+}
+
+.sidebar-profile {
+    width: 28px;
+    height: 28px;
+    border-radius: 50% !important;
+    object-fit: cover;
+    display: block;
+    overflow: hidden;
+    border: 1px solid #222;
+    margin-left: 8px;
+}
+
+.sidebar-live-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #3ea6ff;
+    margin-left: auto;
+    margin-right: 8px;
+}
+
+.sidebar-live-dot.live {
+    background: #ff4343;
+}
+
+.sidebar-divider {
+    border: none;
+    border-top: 1px solid #CCC;
+    margin: 10px 0 10px 0;
+}
+
+.sidebar-more {
+    color: #fff !important;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.sidebar .sidebar-item .bi-person-circle {
+    display: none !important;
+}
+
+#toggle-extra {
+    margin-left: 14px;
+}
+
+.sidebar {
+    scrollbar-width: thin;
+    scrollbar-color: #666 #181818;
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 8px;
+    visibility: collapse;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: #181818;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: #444;
+    border-radius: 6px;
+}
+
+/* ===== OVERLAY SIDEBAR ===== */
+.sidebar.overlay {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    height: calc(100vh - 56px);
+    z-index: 1040;
+    width: 240px;
+    max-width: 240px;
+    background-color: #181818;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    display: block !important;
+}
+
+.sidebar.overlay.active {
+    transform: translateX(0);
+}
+
+/* ===== SIDEBAR COLLAPSED ===== */
+.sidebar.collapsed:not(.overlay.active) {
+    max-width: 72px;
+    padding: 0px;
+    overflow-y: auto;
+}
+
+.sidebar.collapsed:not(.overlay.active) .sidebar-item a {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding: 8px 0;
+    margin: 8px 0;
+    gap: 0px !important;
+}
+
+.sidebar.collapsed:not(.overlay.active) .bi {
+    font-size: 1.5rem;
+}
+
+.sidebar.collapsed:not(.overlay.active) .menu-text {
+    font-size: 0.75rem;
+    margin-top: 4px;
+    display: block !important;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.sidebar.collapsed:not(.overlay.active) .sidebar-divider {
+    display: none !important;
+}
+
+.sidebar.collapsed:not(.overlay.active) .extra-menu {
+    display: none !important;
+}
+
+.sidebar.collapsed:not(.overlay.active) .sidebar-item .bi-chevron-right {
+    display: none !important;
+}
+
+.sidebar.collapsed:not(.overlay.active) .sidebar-item .bi-person-circle {
+    display: inline-block !important;
+}
+
+@media (max-width: 1450px) {
+    .sidebar {
+        width: 72px;
+    }
+
+    .sidebar:not(.collapsed):not(.overlay.active) .extra-menu,
+    .sidebar:not(.collapsed):not(.overlay.active) .sidebar-divider {
+        display: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar:not(.overlay.active) {
+        display: none !important;
+    }
+}
+
+/* ===== MAIN CONTENTS ===== */
+.main-contents {
+    padding-top: 56px;
+}
+
+#main-content {
+    height: calc(100vh - 56px);
+    overflow-y: auto;
 }
