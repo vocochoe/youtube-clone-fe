@@ -57,7 +57,6 @@ input.form-control::placeholder {
     color: #ccc;
 }
 
-/* 검색 아이콘 애니메이션 */
 .search-icon {
     position: absolute;
     left: 12px;
@@ -115,6 +114,7 @@ form:focus-within input.form-control {
     height: calc(100vh - 56px);
     overflow-y: scroll;
     max-width: 250px;
+    transition: transform 0.3s ease-in-out;
 }
 
 .sidebar ul {
@@ -205,34 +205,51 @@ form:focus-within input.form-control {
 }
 
 .sidebar {
-    scrollbar-width: thin; /* Firefox용 */
+    scrollbar-width: thin;
     scrollbar-color: #666 #181818;
 }
 
-/* Chrome, Edge, Safari */
 .sidebar::-webkit-scrollbar {
     width: 8px;
     visibility: collapse;
 }
 
 .sidebar::-webkit-scrollbar-track {
-    background: #181818; /* 스크롤 트랙 (배경) */
+    background: #181818;
 }
 
 .sidebar::-webkit-scrollbar-thumb {
-    background-color: #444; /* 스크롤 손잡이 */
+    background-color: #444;
     border-radius: 6px;
 }
 
+/* ===== OVERLAY SIDEBAR ===== */
+.sidebar.overlay {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    height: calc(100vh - 56px);
+    z-index: 1040;
+    width: 240px;
+    max-width: 240px;
+    background-color: #181818;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    display: block !important;
+}
+
+.sidebar.overlay.active {
+    transform: translateX(0);
+}
 
 /* ===== SIDEBAR COLLAPSED ===== */
-.sidebar.collapsed {
+.sidebar.collapsed:not(.overlay.active) {
     max-width: 72px;
     padding: 0px;
     overflow-y: auto;
 }
 
-.sidebar.collapsed .sidebar-item a {
+.sidebar.collapsed:not(.overlay.active) .sidebar-item a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -242,11 +259,11 @@ form:focus-within input.form-control {
     gap: 0px !important;
 }
 
-.sidebar.collapsed .bi {
+.sidebar.collapsed:not(.overlay.active) .bi {
     font-size: 1.5rem;
 }
 
-.sidebar.collapsed .menu-text {
+.sidebar.collapsed:not(.overlay.active) .menu-text {
     font-size: 0.75rem;
     margin-top: 4px;
     display: block !important;
@@ -254,37 +271,35 @@ form:focus-within input.form-control {
     white-space: nowrap;
 }
 
-.sidebar.collapsed .sidebar-divider {
+.sidebar.collapsed:not(.overlay.active) .sidebar-divider {
     display: none !important;
 }
 
-.sidebar.collapsed .extra-menu {
+.sidebar.collapsed:not(.overlay.active) .extra-menu {
     display: none !important;
 }
 
-.sidebar.collapsed .sidebar-item .bi-chevron-right {
+.sidebar.collapsed:not(.overlay.active) .sidebar-item .bi-chevron-right {
     display: none !important;
 }
 
-.sidebar.collapsed .sidebar-item .bi-person-circle {
+.sidebar.collapsed:not(.overlay.active) .sidebar-item .bi-person-circle {
     display: inline-block !important;
 }
 
-/* 1450px 이하: 자동으로 접힘 */
 @media (max-width: 1450px) {
     .sidebar {
         width: 72px;
     }
 
-    .sidebar:not(.collapsed) .extra-menu,
-    .sidebar:not(.collapsed) .sidebar-divider {
+    .sidebar:not(.collapsed):not(.overlay.active) .extra-menu,
+    .sidebar:not(.collapsed):not(.overlay.active) .sidebar-divider {
         display: none !important;
     }
 }
 
-/* 모바일: 완전 숨김 */
 @media (max-width: 768px) {
-    .sidebar {
+    .sidebar:not(.overlay.active) {
         display: none !important;
     }
 }
@@ -292,7 +307,6 @@ form:focus-within input.form-control {
 /* ===== MAIN CONTENTS ===== */
 .main-contents {
     padding-top: 56px;
-
 }
 
 #main-content {
