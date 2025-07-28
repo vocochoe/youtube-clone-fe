@@ -1,68 +1,62 @@
+// ============================
+// 사이드바 toggle 버튼
+// ============================
 const menuBtn = document.getElementById('menu-toggle');
 const sidebar = document.getElementById('side-bar');
 
-menuBtn.addEventListener('click', function () {
+menuBtn.addEventListener('click', () => {
     const isMobile = window.innerWidth <= 768;
     const isMidSize = window.innerWidth <= 1450;
+    const isOpen = sidebar.classList.contains('overlay') && sidebar.classList.contains('active');
 
     if (isMobile || isMidSize) {
-        // 오버레이 열기: overlay & active 적용 + collapsed 제거해서 확장상태로 보여줌
-        const isOpen = sidebar.classList.contains('overlay') && sidebar.classList.contains('active');
         if (isOpen) {
             sidebar.classList.remove('active');
-
-            if (isMidSize && !isMobile) {
-                sidebar.classList.remove('overlay');
-                sidebar.classList.add('collapsed');
-            } else if (isMobile) {
-                sidebar.classList.remove('overlay');
-                sidebar.classList.add('d-none');
-            }
-
+            sidebar.classList.remove('overlay');
+            sidebar.classList.remove('mobile-open', 'mid-open');
+            sidebar.classList.toggle('d-none', isMobile);
+            sidebar.classList.toggle('collapsed', isMidSize && !isMobile);
         } else {
-            // 열기 전에 hidden 상태 제거
-            sidebar.classList.remove('d-none');
+            sidebar.classList.remove('d-none', 'collapsed');
             sidebar.classList.add('overlay', 'active');
-            sidebar.classList.remove('collapsed'); // 확장된 구조로 보여주기 위해 제거
+            sidebar.classList.toggle('mobile-open', isMobile);
+            sidebar.classList.toggle('mid-open', isMidSize && !isMobile);
         }
     } else {
-        // 데스크탑에서는 단순히 collapsed 토글
         sidebar.classList.toggle('collapsed');
     }
 });
 
-document.addEventListener('click', function (e) {
-    const isOverlayOpen = sidebar.classList.contains('overlay') && sidebar.classList.contains('active');
-    const clickedOutside = !sidebar.contains(e.target) && !menuBtn.contains(e.target);
+// ============================
+// 카테고리 스크롤 관련
+// ============================
+const categoryBar = document.querySelector('.category-bar');
+const categoryWrapper = document.getElementById('category-scroll');
+const leftBtn = document.getElementById('scroll-left');
+const rightBtn = document.getElementById('scroll-right');
 
-    if (isOverlayOpen && clickedOutside) {
-        sidebar.classList.remove('active');
+function updateButtons() {
+    leftBtn.classList.toggle("d-none", categoryWrapper.scrollLeft <= 0);
+    rightBtn.classList.toggle("d-none", categoryWrapper.scrollLeft + categoryWrapper.offsetWidth >= categoryWrapper.scrollWidth - 5);
+}
 
-        const isMobile = window.innerWidth <= 768;
-        const isMidSize = window.innerWidth <= 1450;
+function initCategoryScrollEvents() {
+    if (!categoryWrapper) return;
+    rightBtn.addEventListener("click", () => categoryWrapper.scrollBy({ left: 200, behavior: "smooth" }));
+    leftBtn.addEventListener("click", () => categoryWrapper.scrollBy({ left: -200, behavior: "smooth" }));
+    categoryWrapper.addEventListener("scroll", updateButtons);
+    window.addEventListener("resize", updateButtons);
+    updateButtons();
+}
 
-        if (isMidSize && !isMobile) {
-            sidebar.classList.add('collapsed');
-        }
-
-        if (isMobile) {
-            // 모바일은 완전 숨김
-            sidebar.classList.remove('overlay');
-            sidebar.classList.add('d-none');
-        } else if (isMidSize) {
-            // 중간 사이즈는 축소 상태 유지
-            sidebar.classList.remove('overlay');
-            sidebar.classList.add('collapsed');
-        }
-    }
-});
-
+// ============================
+// 윈도우 리사이즈 시 사이드바 상태 초기화
+// ============================
 function handleResize() {
     const isMobile = window.innerWidth <= 768;
     const isMidSize = window.innerWidth <= 1450;
 
-    // 항상 오버레이 관련 초기화
-    sidebar.classList.remove('overlay', 'active');
+    sidebar.classList.remove('overlay', 'active', 'mobile-open', 'mid-open');
 
     if (isMobile) {
         sidebar.classList.add('d-none');
@@ -71,10 +65,48 @@ function handleResize() {
         sidebar.classList.remove('d-none');
         sidebar.classList.add('collapsed');
     } else {
-        sidebar.classList.remove('d-none');
-        sidebar.classList.remove('collapsed');
+        sidebar.classList.remove('d-none', 'collapsed');
     }
 }
 
+// ============================
+// 비디오 카드 메뉴 열기/닫기
+// ============================
+document.addEventListener('click', function (e) {
+    const isOverlayOpen = sidebar.classList.contains('overlay') && sidebar.classList.contains('active');
+    const clickedOutside = !sidebar.contains(e.target) && !menuBtn.contains(e.target);
+
+    // 사이드바 외부 클릭 시 닫기
+    if (isOverlayOpen && clickedOutside) {
+        sidebar.classList.remove('active');
+        const isMobile = window.innerWidth <= 768;
+        const isMidSize = window.innerWidth <= 1450;
+
+        if (isMobile) {
+            sidebar.classList.remove('overlay');
+            sidebar.classList.add('d-none');
+        } else if (isMidSize) {
+            sidebar.classList.remove('overlay');
+            sidebar.classList.add('collapsed');
+        }
+    }
+
+    // 모든 비디오 메뉴 닫기
+    document.querySelectorAll(".video-menu").forEach(menu => menu.classList.add("d-none"));
+
+    // 해당 카드 메뉴 토글
+    if (e.target.closest(".menu-toggle")) {
+        const wrapper = e.target.closest(".menu-wrapper");
+        const menu = wrapper.querySelector(".video-menu");
+        menu.classList.toggle("d-none");
+    }
+});
+
+// ============================
+// 초기 실행
+// ============================
 window.addEventListener('resize', handleResize);
-window.addEventListener('DOMContentLoaded', handleResize);
+window.addEventListener('DOMContentLoaded', () => {
+    handleResize();
+    initCategoryScrollEvents();
+});
