@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../css/style.css"/>
 </head>
 
-<body class="bg-black">
+<body class="bg-dark">
 
 <!-- 상단 네비게이션 바 -->
 <header id="nav-bar" class="bg-dark text-white fixed-top">
@@ -31,7 +31,7 @@
 
             <!-- 중앙 : 모바일용 검색 버튼 -->
             <div class="d-flex d-md-none align-items-center ms-3">
-                <button class="btn btn-dark-grey-none rounded-circle" aria-label="검색" title="검색">
+                <button class="btn btn-dark-grey-none rounded-circle" aria-label="검색">
                     <i class="bi bi-search text-white fs-5h"></i>
                 </button>
             </div>
@@ -57,8 +57,7 @@
             <div class="d-flex align-items-center me-2">
 
                 <!-- 모바일용 마이크 버튼 -->
-                <button class="btn btn-dark-grey-none rounded-circle voice-btn d-md-none" aria-label="음성 검색"
-                        title="음성으로 검색">
+                <button class="btn btn-dark-grey-none rounded-circle voice-btn d-md-none" aria-label="음성 검색">
                     <i class="bi bi-mic text-white fs-5"></i>
                 </button>
 
@@ -67,12 +66,10 @@
                     <i class="bi bi-plus-lg"></i> 만들기
                 </button>
 
-                <!-- 알림 -->
                 <button class="btn btn-dark rounded-circle position-relative btn-alarm me-3" aria-label="알림">
                     <i class="bi bi-bell text-white fs-5"></i>
                 </button>
 
-                <!-- 사용자 아이콘 -->
                 <img src="../assets/images/user-icon.png" alt="사용자 프로필" class="rounded-circle user-icon" width="32"
                      height="32">
             </div>
@@ -81,8 +78,6 @@
     </nav>
 </header>
 
-
-<!-- 전체 콘텐츠 영역 -->
 <!-- 사이드바 -->
 <aside id="side-bar" class="sidebar bg-dark text-white">
     <ul class="list-unstyled m-0 p-1" id="sidebar-menu">
@@ -107,7 +102,7 @@
             </a>
         </li>
 
-        <!-- 내 페이지 타이틀/아래 메뉴 전부 extra-menu -->
+        <!-- 내 페이지 : extra-menu -->
         <hr class="sidebar-divider extra-menu">
 
         <li class="sidebar-item mb-1 text-secondary small d-flex align-items-center ">
@@ -150,7 +145,7 @@
 
         <hr class="sidebar-divider extra-menu">
 
-        <!-- 구독 타이틀/아래 구독자 전부 extra-menu -->
+        <!-- 구독자 : extra-menu -->
         <li class="sidebar-section-title mt-2 mb-1 px-2 fw-bold text-secondary small extra-menu">
             구독
         </li>
@@ -178,8 +173,172 @@
 
 <!-- 메인 콘텐츠 -->
 <main id="main-content" class="main-content bg-dark">
-    <div>
-        <h1 class="text-white">메인 콘텐츠 메인 콘텐츠 메인 콘텐츠 메인 콘텐츠메인 콘텐츠 메인 콘텐츠 메인 콘텐츠 메인 콘텐츠메인 콘텐츠 메인 콘텐츠 메인 콘텐츠 메인 콘텐츠메인 콘텐츠 메인 콘텐츠 메인 콘텐츠 메인 콘텐츠메인 콘텐츠 메인 콘텐츠 메인 콘텐츠 메인 콘텐츠메인 콘텐츠 메인 콘텐츠 메인 콘텐츠 메인 콘텐츠메인 콘텐츠 메인 콘텐츠 메인 콘텐츠 메인 콘텐츠메인 콘텐츠 메인 콘텐츠 메인 콘텐츠 메인 콘텐츠</h1>
+
+    <!-- 카테고리 바 -->
+    <div class="category-bar bg-dark align-items-center gap-2">
+        <button class="btn btn-dark d-none rounded-pill scroll-btn" id="scroll-left"><i class="bi bi-chevron-left"></i>
+        </button>
+        <div class="category-wrapper flex-nowrap overflow-auto d-flex gap-2 px-1" id="category-scroll">
+            <button class="btn btn-light rounded px-3 py-1">전체</button>
+            <button class="btn btn-dark-grey rounded text-white px-3 py-1">음악</button>
+            <button class="btn btn-dark-grey rounded text-white px-3 py-1">게임</button>
+            <button class="btn btn-dark-grey rounded text-white px-3 py-1">라이브</button>
+            <button class="btn btn-dark-grey rounded text-white px-3 py-1">요리</button>
+            <button class="btn btn-dark-grey rounded text-white px-3 py-1">최근 업로드</button>
+            <button class="btn btn-dark-grey rounded text-white px-3 py-1">감상한 영상</button>
+            <button class="btn btn-dark-grey rounded text-white px-3 py-1">새로운 추천</button>
+        </div>
+        <button class="btn btn-dark rounded-pill scroll-btn " id="scroll-right"><i class="bi bi-chevron-right"></i>
+        </button>
+    </div>
+
+    <!-- 카드 섹션 -->
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- JS로 동적 카드 생성 예정 -->
+            <!-- 카드 1 -->
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-5">
+                <div class="video-card">
+                    <div class="thumbnail-wrapper position-relative mb-3">
+                        <img src="../assets/images/thumb1.jpg" class="img-fluid thumbnail" alt="썸네일">
+                        <div class="progress-bg">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <span class="video-duration badge bg-dark position-absolute bottom-0 end-0 m-1">12:34</span>
+                    </div>
+                    <div class="d-flex mt-2 align-items-start mb-3">
+                        <img src="../assets/images/profile1.png" class="channel-icon me-2" alt="채널 이미지">
+                        <div class="video-info flex-grow-1">
+                            <p class="video-title text-white mb-1">
+                                당신이 아는 빅뱅은 틀렸다? 충격적인 우주의 진짜 시작 당신이 아는 빅뱅은 틀렸다? 충격적인 우주의 진짜 시잗 당신이 아는 빅뱅은 틀렸다? 충격적인 우주의
+                                진짜 시작 충격적인 우주의 진짜 시잗 당신이 아는 빅뱅은 틀렸다? 충격적인 우주의 진짜 시작
+                            </p>
+                            <p class="video-meta text-secondary small mb-0">EBS 컬렉션</p>
+                            <p class="video-meta text-secondary small mb-0">조회수 12만회 · 1일 전</p>
+                        </div>
+                        <div class="menu-wrapper position-relative">
+                            <i class="bi bi-three-dots-vertical text-white fs-6 menu-toggle" role="button"></i>
+
+                            <!-- 메뉴 박스 -->
+                            <ul class="video-menu text-white p-2 rounded shadow-sm position-absolute d-none">
+                                <li class="dropdown-item">현재 재생목록에 추가</li>
+                                <li class="dropdown-item">나중에 볼 동영상에 저장</li>
+                                <li class="dropdown-item">오프라인 저장</li>
+                                <li class="dropdown-item">공유</li>
+                                <li class="dropdown-item text-danger">신고</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 카드 2 -->
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-5">
+                <div class="video-card">
+                    <div class="thumbnail-wrapper position-relative mb-3">
+                        <img src="../assets/images/thumb1.jpg" class="img-fluid thumbnail" alt="썸네일">
+                        <div class="progress-bg">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <span class="video-duration badge bg-dark position-absolute bottom-0 end-0 m-1">12:34</span>
+                    </div>
+                    <div class="d-flex mt-2 align-items-start mb-3">
+                        <img src="../assets/images/profile1.png" class="channel-icon me-2" alt="채널 이미지">
+                        <div class="video-info flex-grow-1">
+                            <p class="video-title text-white mb-1">
+                                당신이 아는 빅뱅은 틀렸다? 충격적인 우주의 진짜 시작
+                            </p>
+                            <p class="video-meta text-secondary small mb-0">EBS 컬렉션</p>
+                            <p class="video-meta text-secondary small mb-0">조회수 12만회 · 1일 전</p>
+                        </div>
+                        <div class="menu-wrapper position-relative">
+                            <i class="bi bi-three-dots-vertical text-white fs-6 menu-toggle" role="button"></i>
+
+                            <!-- 메뉴 박스 -->
+                            <ul class="video-menu text-white p-2 rounded shadow-sm position-absolute d-none">
+                                <li class="dropdown-item">현재 재생목록에 추가</li>
+                                <li class="dropdown-item">나중에 볼 동영상에 저장</li>
+                                <li class="dropdown-item">오프라인 저장</li>
+                                <li class="dropdown-item">공유</li>
+                                <li class="dropdown-item text-danger">신고</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 카드 3 -->
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-5">
+                <div class="video-card">
+                    <div class="thumbnail-wrapper position-relative mb-3">
+                        <img src="../assets/images/thumb1.jpg" class="img-fluid thumbnail" alt="썸네일">
+                        <div class="progress-bg">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <span class="video-duration badge bg-dark position-absolute bottom-0 end-0 m-1">12:34</span>
+                    </div>
+                    <div class="d-flex mt-2 align-items-start mb-3">
+                        <img src="../assets/images/profile1.png" class="channel-icon me-2" alt="채널 이미지">
+                        <div class="video-info flex-grow-1">
+                            <p class="video-title text-white mb-1">
+                                당신이 아는 빅뱅은 틀렸다? 충격적인 우주의 진짜 시작
+                            </p>
+                            <p class="video-meta text-secondary small mb-0">EBS 컬렉션</p>
+                            <p class="video-meta text-secondary small mb-0">조회수 12만회 · 1일 전</p>
+                        </div>
+                        <div class="menu-wrapper position-relative">
+                            <i class="bi bi-three-dots-vertical text-white fs-6 menu-toggle" role="button"></i>
+
+                            <!-- 메뉴 박스 -->
+                            <ul class="video-menu text-white p-2 rounded shadow-sm position-absolute d-none">
+                                <li class="dropdown-item">현재 재생목록에 추가</li>
+                                <li class="dropdown-item">나중에 볼 동영상에 저장</li>
+                                <li class="dropdown-item">오프라인 저장</li>
+                                <li class="dropdown-item">공유</li>
+                                <li class="dropdown-item text-danger">신고</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 카드 4 (둘째 줄 첫 번째) -->
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-5">
+                <div class="video-card">
+                    <div class="thumbnail-wrapper position-relative mb-3">
+                        <img src="../assets/images/thumb1.jpg" class="img-fluid thumbnail" alt="썸네일">
+                        <div class="progress-bg">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <span class="video-duration badge bg-dark position-absolute bottom-0 end-0 m-1">12:34</span>
+                    </div>
+                    <div class="d-flex mt-2 align-items-start mb-3">
+                        <img src="../assets/images/profile1.png" class="channel-icon me-2" alt="채널 이미지">
+                        <div class="video-info flex-grow-1">
+                            <p class="video-title text-white mb-1">
+                                당신이 아는 빅뱅은 틀렸다? 충격적인 우주의 진짜 시작
+                            </p>
+                            <p class="video-meta text-secondary small mb-0">EBS 컬렉션</p>
+                            <p class="video-meta text-secondary small mb-0">조회수 12만회 · 1일 전</p>
+                        </div>
+                        <div class="menu-wrapper position-relative">
+                            <i class="bi bi-three-dots-vertical text-white fs-6 menu-toggle" role="button"></i>
+
+                            <!-- 메뉴 박스 -->
+                            <ul class="video-menu text-white p-2 rounded shadow-sm position-absolute d-none">
+                                <li class="dropdown-item">현재 재생목록에 추가</li>
+                                <li class="dropdown-item">나중에 볼 동영상에 저장</li>
+                                <li class="dropdown-item">오프라인 저장</li>
+                                <li class="dropdown-item">공유</li>
+                                <li class="dropdown-item text-danger">신고</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 </main>
 
@@ -189,3 +348,4 @@
 
 </body>
 </html>
+
