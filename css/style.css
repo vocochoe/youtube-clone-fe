@@ -114,6 +114,11 @@ form:focus-within input.form-control {
     height: calc(100vh - 56px);
     overflow-y: scroll;
     max-width: 250px;
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 240px;
+    z-index: 1040;
     transition: transform 0.3s ease-in-out;
 }
 
@@ -204,23 +209,22 @@ form:focus-within input.form-control {
     margin-left: 14px;
 }
 
-.sidebar {
-    scrollbar-width: thin;
-    scrollbar-color: #666 #181818;
-}
-
 .sidebar::-webkit-scrollbar {
     width: 8px;
     visibility: collapse;
 }
 
 .sidebar::-webkit-scrollbar-track {
-    background: #181818;
+    background: #212529;
 }
 
 .sidebar::-webkit-scrollbar-thumb {
     background-color: #444;
     border-radius: 6px;
+}
+
+.sidebar.d-none ~ #main-content {
+    margin-left: 0;
 }
 
 /* ===== OVERLAY SIDEBAR ===== */
@@ -242,11 +246,23 @@ form:focus-within input.form-control {
     transform: translateX(0);
 }
 
+.sidebar.mobile-open.overlay.active ~ #main-content {
+    margin-left: 0;
+}
+
+.sidebar.mid-open.overlay.active ~ #main-content {
+    margin-left: 72px;
+}
+
 /* ===== SIDEBAR COLLAPSED ===== */
 .sidebar.collapsed:not(.overlay.active) {
     max-width: 72px;
     padding: 0px;
     overflow-y: auto;
+}
+
+.sidebar.collapsed ~ #main-content {
+    margin-left: 72px;
 }
 
 .sidebar.collapsed:not(.overlay.active) .sidebar-item a {
@@ -299,17 +315,19 @@ form:focus-within input.form-control {
 }
 
 @media (max-width: 768px) {
-    .sidebar:not(.overlay.active) {
+    .sidebar {
         display: none !important;
+    }
+
+    .sidebar.overlay.active {
+        display: block;
     }
 }
 
 /* ===== MAIN CONTENTS ===== */
-.main-contents {
-    padding-top: 56px;
-}
-
 #main-content {
+    margin-left: 240px;
+    padding: 56px 12px 12px 12px;
     height: calc(100vh - 56px);
     overflow-y: auto;
 }

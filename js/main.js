@@ -6,16 +6,19 @@ menuBtn.addEventListener('click', function () {
     const isMidSize = window.innerWidth <= 1450;
 
     if (isMobile || isMidSize) {
-        // 오버레이 열기: overlay & active 적용 + collapsed 제거해서 확장상태로 보여줌
+        // 오버레이 열기: overlay & active 적용
         const isOpen = sidebar.classList.contains('overlay') && sidebar.classList.contains('active');
+
         if (isOpen) {
             sidebar.classList.remove('active');
 
             if (isMidSize && !isMobile) {
                 sidebar.classList.remove('overlay');
+                sidebar.classList.remove('mid-open');
                 sidebar.classList.add('collapsed');
             } else if (isMobile) {
                 sidebar.classList.remove('overlay');
+                sidebar.classList.remove('mobile-open');
                 sidebar.classList.add('d-none');
             }
 
@@ -23,7 +26,15 @@ menuBtn.addEventListener('click', function () {
             // 열기 전에 hidden 상태 제거
             sidebar.classList.remove('d-none');
             sidebar.classList.add('overlay', 'active');
-            sidebar.classList.remove('collapsed'); // 확장된 구조로 보여주기 위해 제거
+            sidebar.classList.remove('collapsed');
+
+            if (isMobile) {
+                sidebar.classList.add('mobile-open');
+                sidebar.classList.remove('mid-open');
+            } else if (isMidSize) {
+                sidebar.classList.add('mid-open');
+                sidebar.classList.remove('mobile-open');
+            }
         }
     } else {
         // 데스크탑에서는 단순히 collapsed 토글
