@@ -2,8 +2,8 @@
 const relativeBasePath = "../assets/images/";
 const absoluteBasePath = "https://vocochoe.github.io/youtube-clone-fe/assets/images/";
 
-const basePath = relativeBasePath;
-// const basePath = absoluteBasePath;
+// const basePath = relativeBasePath;
+const basePath = absoluteBasePath;
 
 const videoDataList = [
     {

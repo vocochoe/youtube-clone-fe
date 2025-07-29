@@ -1,0 +1,127 @@
+<header id="nav-bar" class="bg-dark text-white fixed-top">
+    <nav class="navbar navbar-expand-lg bg-dark align-items-center">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+
+            <!-- 좌측 : 메뉴 및 로고 -->
+            <div class="d-flex align-items-center gap-3">
+                <button class="btn btn-dark rounded-pill" id="menu-toggle" aria-label="사이드 메뉴 열기">
+                    <i class="bi bi-list fs-4 text-white"></i>
+                </button>
+                <a href="index.html" class="d-flex align-items-center text-white text-decoration-none">
+                    <img src="../assets/images/youtube-logo-dark.png" alt="YouTube 로고" height="18">
+                </a>
+            </div>
+
+
+            <!-- 중앙 : 모바일용 검색 버튼 -->
+            <div class="d-flex d-md-none align-items-center ms-3">
+                <button class="btn btn-dark-grey-none rounded-circle" aria-label="검색">
+                    <i class="bi bi-search text-white fs-5h"></i>
+                </button>
+            </div>
+
+            <!-- 중앙 : 검색창 -->
+            <div class="d-none d-md-flex align-items-center gap-3 w-50">
+                <form class="d-flex flex-grow-1 position-relative search-form">
+                    <i class="bi bi-search search-icon"></i>
+                    <input type="text" class="form-control bg-dark text-white rounded-left-pill"
+                           placeholder="검색" aria-label="검색어 입력">
+                    <button class="btn btn-dark-grey search-btn rounded-right-pill" type="submit">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </form>
+
+                <button class="btn btn-dark-grey rounded-circle voice-btn" aria-label="음성 검색 버튼">
+                    <i class="bi bi-mic text-white fs-5"></i>
+                </button>
+            </div>
+
+
+            <!-- 우측 : 만들기 버튼, 알림, 사용자 아이콘 -->
+            <div class="d-flex align-items-center me-2">
+
+                <!-- 모바일용 마이크 버튼 -->
+                <button class="btn btn-dark-grey-none rounded-circle voice-btn d-md-none" aria-label="음성 검색">
+                    <i class="bi bi-mic text-white fs-5"></i>
+                </button>
+
+                <button class="btn btn-dark-grey btn-sm rounded-pill d-md-flex align-items-center px-3 py-2"
+                        aria-label="동영상 만들기">
+                    <i class="bi bi-plus-lg"></i> 만들기
+                </button>
+
+                <button class="btn btn-dark rounded-circle position-relative btn-alarm me-3" aria-label="알림">
+                    <i class="bi bi-bell text-white fs-5"></i>
+                </button>
+
+                <img src="../assets/images/user-icon.png" alt="사용자 프로필" class="rounded-circle user-icon" width="32"
+                     height="32">
+            </div>
+
+        </div>
+    </nav>
+</header>
+
+<!-- 사용자 드롭다운 메뉴 -->
+<div id="profile-menu" class="profile-menu d-none position-absolute">
+    <!-- 상단 유저 정보 -->
+    <div class="d-flex align-items gap-3 p-3">
+        <img src="../assets/images/user-icon.png" alt="프로필 이미지" width="40" height="40" class="rounded-circle mt-1">
+        <div>
+            <div class="fw-bold text-white">BoYun Choe</div>
+            <div class="text-secondary small">@boyunee</div>
+            <a href="#" class="channel-link">내 채널 보기</a>
+        </div>
+    </div>
+
+    <hr class="m-0 border-secondary" />
+
+    <!-- 메뉴 항목 리스트 -->
+    <ul class="list-unstyled m-0">
+        <li class="menu-item px-3 py-2 d-flex align-items-center gap-3">
+            <i class="bi bi-person-circle fs-5"></i> Google 계정
+        </li>
+        <li class="menu-item px-3 py-2 d-flex align-items-center gap-3">
+            <i class="bi bi-person-fill fs-5"></i> 계정 전환
+        </li>
+        <li class="menu-item px-3 py-2 d-flex align-items-center gap-3">
+            <i class="bi bi-box-arrow-right fs-5"></i> 로그아웃
+        </li>
+
+        <hr class="m-0 border-secondary" />
+
+        <li class="menu-item px-3 py-2 d-flex align-items-center gap-3">
+            <i class="bi bi-camera-reels fs-5"></i> YouTube 스튜디오
+        </li>
+        <li class="menu-item px-3 py-2 d-flex align-items-center gap-3">
+            <i class="bi bi-cash-stack fs-5"></i> 구매 항목 및 멤버십
+        </li>
+
+        <hr class="m-0 border-secondary" />
+
+        <li class="menu-item px-3 py-2 d-flex align-items-center gap-3">
+            <i class="bi bi-moon fs-5"></i> 디자인: 어두운 테마
+        </li>
+        <li class="menu-item px-3 py-2 d-flex align-items-center gap-3">
+            <i class="bi bi-translate fs-5"></i> 언어: 한국어
+        </li>
+        <li class="menu-item px-3 py-2 d-flex align-items-center gap-3">
+            <i class="bi bi-shield-check fs-5"></i> 제한 모드: 사용 안함
+        </li>
+        <li class="menu-item px-3 py-2 d-flex align-items-center gap-3">
+            <i class="bi bi-geo-alt fs-5"></i> 위치: 한국
+        </li>
+
+        <hr class="m-0 border-secondary" />
+
+        <li class="menu-item px-3 py-2 d-flex align-items-center gap-3">
+            <i class="bi bi-gear fs-5"></i> 설정
+        </li>
+        <li class="menu-item px-3 py-2 d-flex align-items-center gap-3">
+            <i class="bi bi-question-circle fs-5"></i> 고객센터
+        </li>
+        <li class="menu-item px-3 py-2 d-flex align-items-center gap-3">
+            <i class="bi bi-chat-dots fs-5"></i> 의견 보내기
+        </li>
+    </ul>
+</div>

@@ -84,7 +84,7 @@ form:focus-within input.form-control {
     background-color: #212121;
     color: white;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     top: 56px;
     right: 12px;
     width: 260px;
@@ -188,8 +188,6 @@ form:focus-within input.form-control {
     font-size: 0.93rem;
     font-weight: 500;
     margin-top: 4px;
-
-
 }
 
 .subscription-name {
@@ -374,6 +372,7 @@ form:focus-within input.form-control {
     }
 }
 
+
 /* ===== MAIN CONTENT ===== */
 #main-content {
     margin-left: 240px;
@@ -524,7 +523,7 @@ form:focus-within input.form-control {
     position: absolute;
     padding: 0;
     border-radius: 6px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .video-menu li {

@@ -1,66 +1,99 @@
 // ============================
-// 사이드바 toggle 버튼
+// 전역 변수
 // ============================
-const menuBtn = document.getElementById('menu-toggle');
-const sidebar = document.getElementById('side-bar');
-
-const userIcon = document.querySelector('.user-icon');
-const profileMenu = document.getElementById('profile-menu');
-
-userIcon.addEventListener('click', (e) => {
-    e.stopPropagation();  // 클릭 버블링 방지
-    profileMenu.classList.toggle('d-none');
-});
-
-menuBtn.addEventListener('click', () => {
-    const isMobile = window.innerWidth <= 768;
-    const isMidSize = window.innerWidth <= 1450;
-    const isOpen = sidebar.classList.contains('overlay') && sidebar.classList.contains('active');
-
-    if (isMobile || isMidSize) {
-        if (isOpen) {
-            sidebar.classList.remove('active');
-            sidebar.classList.remove('overlay');
-            sidebar.classList.remove('mobile-open', 'mid-open');
-            sidebar.classList.toggle('d-none', isMobile);
-            sidebar.classList.toggle('collapsed', isMidSize && !isMobile);
-        } else {
-            sidebar.classList.remove('d-none', 'collapsed');
-            sidebar.classList.add('overlay', 'active');
-            sidebar.classList.toggle('mobile-open', isMobile);
-            sidebar.classList.toggle('mid-open', isMidSize && !isMobile);
-        }
-    } else {
-        sidebar.classList.toggle('collapsed');
-    }
-});
+let sidebar = null;
+let menuBtn = null;
+let profileMenu = null;
 
 // ============================
-// 카테고리 스크롤 관련
+// 헤더 이벤트 초기화
 // ============================
-const categoryBar = document.querySelector('.category-bar');
-const categoryWrapper = document.getElementById('category-scroll');
-const leftBtn = document.getElementById('scroll-left');
-const rightBtn = document.getElementById('scroll-right');
+function initHeaderEvents() {
+    const userIcon = document.querySelector('.user-icon');
+    profileMenu = document.getElementById('profile-menu');
 
-function updateButtons() {
-    leftBtn.classList.toggle("d-none", categoryWrapper.scrollLeft <= 0);
-    rightBtn.classList.toggle("d-none", categoryWrapper.scrollLeft + categoryWrapper.offsetWidth >= categoryWrapper.scrollWidth - 5);
+    if (!userIcon || !profileMenu) return;
+
+    userIcon.addEventListener('click', (e) => {
+        e.stopPropagation();
+        profileMenu.classList.toggle('d-none');
+    });
 }
 
-function initCategoryScrollEvents() {
-    if (!categoryWrapper) return;
-    rightBtn.addEventListener("click", () => categoryWrapper.scrollBy({ left: 200, behavior: "smooth" }));
-    leftBtn.addEventListener("click", () => categoryWrapper.scrollBy({ left: -200, behavior: "smooth" }));
-    categoryWrapper.addEventListener("scroll", updateButtons);
-    window.addEventListener("resize", updateButtons);
-    updateButtons();
+// ============================
+// 사이드바 이벤트 초기화
+// ============================
+function initSidebarEvents() {
+    menuBtn = document.getElementById('menu-toggle');
+    sidebar = document.getElementById('side-bar');
+    profileMenu = document.getElementById('profile-menu');
+
+    if (!menuBtn || !sidebar) return;
+
+    // 햄버거 버튼 클릭
+    menuBtn.addEventListener('click', () => {
+        const isMobile = window.innerWidth <= 768;
+        const isMidSize = window.innerWidth <= 1450;
+        const isOpen = sidebar.classList.contains('overlay') && sidebar.classList.contains('active');
+
+        if (isMobile || isMidSize) {
+            if (isOpen) {
+                sidebar.classList.remove('active', 'overlay', 'mobile-open', 'mid-open');
+                sidebar.classList.toggle('d-none', isMobile);
+                sidebar.classList.toggle('collapsed', isMidSize && !isMobile);
+            } else {
+                sidebar.classList.remove('d-none', 'collapsed');
+                sidebar.classList.add('overlay', 'active');
+                sidebar.classList.toggle('mobile-open', isMobile);
+                sidebar.classList.toggle('mid-open', isMidSize && !isMobile);
+            }
+        } else {
+            sidebar.classList.toggle('collapsed');
+        }
+    });
+
+    // 사이드바 외부 클릭 시 닫기
+    document.addEventListener('click', function (e) {
+        const isOverlayOpen = sidebar.classList.contains('overlay') && sidebar.classList.contains('active');
+        const clickedOutside = !sidebar.contains(e.target) && !menuBtn.contains(e.target);
+
+        if (isOverlayOpen && clickedOutside) {
+            sidebar.classList.remove('active');
+            const isMobile = window.innerWidth <= 768;
+            const isMidSize = window.innerWidth <= 1450;
+
+            if (isMobile) {
+                sidebar.classList.remove('overlay');
+                sidebar.classList.add('d-none');
+            } else if (isMidSize) {
+                sidebar.classList.remove('overlay');
+                sidebar.classList.add('collapsed');
+            }
+        }
+
+        // 프로필 메뉴 닫기
+        if (profileMenu && !profileMenu.classList.contains('d-none') && !profileMenu.contains(e.target)) {
+            profileMenu.classList.add('d-none');
+        }
+
+        // 모든 비디오 메뉴 닫기
+        document.querySelectorAll(".video-menu").forEach(menu => menu.classList.add("d-none"));
+
+        // 비디오 카드 메뉴 열기
+        if (e.target.closest(".menu-toggle")) {
+            const wrapper = e.target.closest(".menu-wrapper");
+            const menu = wrapper.querySelector(".video-menu");
+            menu.classList.toggle("d-none");
+        }
+    });
 }
 
 // ============================
 // 윈도우 리사이즈 시 사이드바 상태 초기화
 // ============================
 function handleResize() {
+    if (!sidebar) return;
+
     const isMobile = window.innerWidth <= 768;
     const isMidSize = window.innerWidth <= 1450;
 
@@ -78,42 +111,26 @@ function handleResize() {
 }
 
 // ============================
-// 비디오 카드 메뉴 열기/닫기
+// 카테고리 스크롤
 // ============================
-document.addEventListener('click', function (e) {
-    const isOverlayOpen = sidebar.classList.contains('overlay') && sidebar.classList.contains('active');
-    const clickedOutside = !sidebar.contains(e.target) && !menuBtn.contains(e.target);
+function initCategoryScrollEvents() {
+    const categoryWrapper = document.getElementById('category-scroll');
+    const leftBtn = document.getElementById('scroll-left');
+    const rightBtn = document.getElementById('scroll-right');
 
-    // 사이드바 외부 클릭 시 닫기
-    if (isOverlayOpen && clickedOutside) {
-        sidebar.classList.remove('active');
-        const isMobile = window.innerWidth <= 768;
-        const isMidSize = window.innerWidth <= 1450;
+    if (!categoryWrapper || !leftBtn || !rightBtn) return;
 
-        if (isMobile) {
-            sidebar.classList.remove('overlay');
-            sidebar.classList.add('d-none');
-        } else if (isMidSize) {
-            sidebar.classList.remove('overlay');
-            sidebar.classList.add('collapsed');
-        }
+    function updateButtons() {
+        leftBtn.classList.toggle("d-none", categoryWrapper.scrollLeft <= 0);
+        rightBtn.classList.toggle("d-none", categoryWrapper.scrollLeft + categoryWrapper.offsetWidth >= categoryWrapper.scrollWidth - 5);
     }
 
-    // 모든 비디오 메뉴 닫기
-    document.querySelectorAll(".video-menu").forEach(menu => menu.classList.add("d-none"));
-
-    // 해당 카드 메뉴 토글
-    if (e.target.closest(".menu-toggle")) {
-        const wrapper = e.target.closest(".menu-wrapper");
-        const menu = wrapper.querySelector(".video-menu");
-        menu.classList.toggle("d-none");
-    }
-
-    // 다른 곳 클릭 시 메뉴 닫기
-    if (!profileMenu.classList.contains('d-none') && !profileMenu.contains(e.target)) {
-        profileMenu.classList.add('d-none');
-    }
-});
+    rightBtn.addEventListener("click", () => categoryWrapper.scrollBy({ left: 200, behavior: "smooth" }));
+    leftBtn.addEventListener("click", () => categoryWrapper.scrollBy({ left: -200, behavior: "smooth" }));
+    categoryWrapper.addEventListener("scroll", updateButtons);
+    window.addEventListener("resize", updateButtons);
+    updateButtons();
+}
 
 // ============================
 // 비디오 카드 동적 생성
@@ -122,6 +139,7 @@ function renderVideoCards(videoData) {
     const row = document.querySelector(".row");
     if (!row) return;
 
+    row.innerHTML = "";
     videoData.forEach(video => {
         const col = document.createElement("div");
         col.className = "col-lg-4 col-md-6 col-sm-12 mb-5";
@@ -153,35 +171,35 @@ function renderVideoCards(videoData) {
             </div>
         </div>
         `;
-
         row.appendChild(col);
     });
 }
 
 // ============================
-// 👤 구독 리스트 동적 생성 (최대 7개 + 더보기 토글)
+// 구독 리스트 동적 생성
 // ============================
 function renderSubscriptions(list) {
     const container = document.getElementById("subscription-list");
     if (!container) return;
 
+    container.innerHTML = "";
     list.forEach((channel, index) => {
         const li = document.createElement("li");
         li.className = "sidebar-item d-flex align-items-center gap-3 py-2 subscription-item extra-menu";
         if (index >= 7) li.classList.add("d-none");
 
         li.innerHTML = `
-      <img src="${channel.profile}" alt="${channel.name}" class="sidebar-profile">
-      <span class="subscription-name flex-grow-1">${channel.name}</span>
-      <span class="sidebar-live-dot ${channel.isLive ? 'live' : ''}"></span>
-    `;
+            <img src="${channel.profile}" alt="${channel.name}" class="sidebar-profile">
+            <span class="subscription-name flex-grow-1">${channel.name}</span>
+            <span class="sidebar-live-dot ${channel.isLive ? 'live' : ''}"></span>
+        `;
         container.appendChild(li);
     });
 
     const toggleBtn = document.getElementById("toggle-subscription");
-    let expanded = false;
+    if (!toggleBtn) return;
 
-    // 더보기 버튼 클릭 시 나머지 항목 토글
+    let expanded = false;
     toggleBtn.addEventListener("click", () => {
         expanded = !expanded;
         document.querySelectorAll(".subscription-item").forEach((el, i) => {
@@ -194,14 +212,14 @@ function renderSubscriptions(list) {
     });
 }
 
-
 // ============================
-// 🏷 카테고리 바 동적 렌더링
+// 카테고리 렌더링
 // ============================
 function renderCategoryBar(categories) {
     const wrapper = document.getElementById("category-scroll");
     if (!wrapper) return;
 
+    wrapper.innerHTML = "";
     categories.forEach(cat => {
         const btn = document.createElement("button");
         btn.className = `btn px-3 py-1 ${cat.active ? "btn-light" : "btn-dark-grey text-white"} rounded`;
@@ -210,16 +228,22 @@ function renderCategoryBar(categories) {
     });
 }
 
+// ============================
+// fetch 완료 후 사이드바 초기화
+// ============================
+function initSidebarAfterLoad() {
+    initSidebarEvents();
+    handleResize();
+    renderSubscriptions(subscriptionList);
+
+    window.addEventListener('resize', handleResize);
+}
 
 // ============================
-// 초기 실행
+// 초기 실행 (메인 콘텐츠 렌더링)
 // ============================
 window.addEventListener('DOMContentLoaded', () => {
-    handleResize();
     initCategoryScrollEvents();
     renderCategoryBar(categoryList);
     renderVideoCards(videoDataList);
-    renderSubscriptions(subscriptionList);
 });
-
-window.addEventListener('resize', handleResize);
