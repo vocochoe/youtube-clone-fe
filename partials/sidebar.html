@@ -1,0 +1,79 @@
+<aside id="side-bar" class="sidebar bg-dark text-white">
+  <ul class="list-unstyled m-0 p-1" id="sidebar-menu">
+
+    <!-- 항상 보이는 메뉴 -->
+    <li class="sidebar-item active">
+      <a href="index.html" class="d-flex align-items-center gap-4 text-white">
+        <i class="bi bi-house fs-5"></i>
+        <span class="menu-text">홈</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a href="#" class="d-flex align-items-center gap-4  text-white">
+        <i class="bi bi-lightning-charge fs-5"></i>
+        <span class="menu-text">Shorts</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a href="/pages/subscriptions.html" class="d-flex align-items-center gap-4 text-white">
+        <i class="bi bi-collection-play fs-5"></i>
+        <span class="menu-text">구독</span>
+      </a>
+    </li>
+
+    <!-- 내 페이지 : extra-menu -->
+    <hr class="sidebar-divider extra-menu">
+
+    <li class="sidebar-item mb-1 text-secondary small d-flex align-items-center ">
+      <a href="/pages/my-page.html" class="text-white text-decoration-none d-flex align-items-center w-100">
+        <i class="bi bi-person-circle fs-5"></i>
+        <span class="menu-text mt-0">내 페이지</span>
+        <i class="bi bi-chevron-right fs-8"></i>
+      </a>
+    </li>
+    <li class="sidebar-item extra-menu">
+      <a href="#" class="d-flex align-items-center gap-4 py-2 text-white">
+        <i class="bi bi-clock-history fs-5"></i>
+        <span class="menu-text">시청 기록</span>
+      </a>
+    </li>
+    <li class="sidebar-item extra-menu">
+      <a href="#" class="d-flex align-items-center gap-4 py-2 text-white">
+        <i class="bi bi-list-task fs-5"></i>
+        <span class="menu-text">재생목록</span>
+      </a>
+    </li>
+    <li class="sidebar-item extra-menu">
+      <a href="#" class="d-flex align-items-center gap-4 py-2 text-white">
+        <i class="bi bi-play-btn fs-5"></i>
+        <span class="menu-text">내 동영상</span>
+      </a>
+    </li>
+    <li class="sidebar-item extra-menu">
+      <a href="#" class="d-flex align-items-center gap-4 py-2 text-white">
+        <i class="bi bi-clock fs-5"></i>
+        <span class="menu-text">나중에 볼 동영상</span>
+      </a>
+    </li>
+    <li class="sidebar-item extra-menu">
+      <a href="#" class="d-flex align-items-center gap-4 py-2 text-white">
+        <i class="bi bi-hand-thumbs-up fs-5"></i>
+        <span class="menu-text">좋아요 표시한 동영상</span>
+      </a>
+    </li>
+
+    <hr class="sidebar-divider extra-menu">
+
+    <!-- 구독자 : extra-menu -->
+    <li class="sidebar-section-title mt-2 mb-1 px-2 fw-bold text-secondary small extra-menu">
+      구독
+    </li>
+    <ul id="subscription-list" class="list-unstyled extra-menu px-2">
+      <!-- JS로 동적 구독자 생성 -->
+    </ul>
+    <li id="toggle-subscription" class="sidebar-item d-flex align-items-center gap-3 py-2 mx-3 sidebar-more extra-menu">
+      <i class="bi bi-chevron-down fs-6"></i>
+      <span class="menu-text">더보기</span>
+    </li>
+  </ul>
+</aside>

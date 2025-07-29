@@ -78,6 +78,37 @@ form:focus-within input.form-control {
     padding-left: 40px;
 }
 
+
+/* ===== PROFILE MENU ===== */
+.profile-menu {
+    background-color: #212121;
+    color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    top: 56px;
+    right: 12px;
+    width: 260px;
+    z-index: 1050;
+}
+
+.profile-menu .menu-item {
+    cursor: pointer;
+    transition: background 0.2s ease;
+    font-size: 0.9rem;
+}
+
+.profile-menu .menu-item:hover {
+    background-color: #383838;
+}
+
+.channel-link {
+    color: #3ea6ff;
+    font-size: 0.875rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
 /* ===== BUTTONS ===== */
 .btn-dark-grey {
     background-color: #303030;
@@ -159,6 +190,18 @@ form:focus-within input.form-control {
     margin-top: 4px;
 }
 
+.subscription-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 130px;
+    font-size: 0.93rem;
+    font-weight: 500;
+    margin-top: 4px;
+    vertical-align: middle;
+}
+
 .sidebar-section-title {
     font-size: 0.96rem !important;
     font-weight: 700 !important;
@@ -180,8 +223,8 @@ form:focus-within input.form-control {
 
 .sidebar-live-dot {
     display: inline-block;
-    width: 8px;
-    height: 8px;
+    width: 4px;
+    height: 4px;
     border-radius: 50%;
     background: #3ea6ff;
     margin-left: auto;
@@ -329,6 +372,7 @@ form:focus-within input.form-control {
     }
 }
 
+
 /* ===== MAIN CONTENT ===== */
 #main-content {
     margin-left: 240px;
@@ -356,7 +400,7 @@ form:focus-within input.form-control {
 /* ---- CATEGORY BAR ---- */
 .category-bar {
     position: sticky;
-    top: -12px;
+    top: 0px;
     z-index: 1029;
     background-color: #181818;
     display: flex;
@@ -366,6 +410,7 @@ form:focus-within input.form-control {
     margin-bottom: 12px;
     white-space: nowrap;
     margin-left: 0;
+    padding-bottom: 8px;
 }
 
 .scroll-btn {
@@ -478,7 +523,7 @@ form:focus-within input.form-control {
     position: absolute;
     padding: 0;
     border-radius: 6px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .video-menu li {
