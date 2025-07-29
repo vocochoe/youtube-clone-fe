@@ -146,13 +146,65 @@ function renderVideoCards(videoData) {
 }
 
 // ============================
+// 👤 구독 리스트 동적 생성 (최대 7개 + 더보기 토글)
+// ============================
+function renderSubscriptions(list) {
+    const container = document.getElementById("subscription-list");
+    if (!container) return;
+
+    list.forEach((channel, index) => {
+        const li = document.createElement("li");
+        li.className = "sidebar-item d-flex align-items-center gap-3 py-2 subscription-item extra-menu";
+        if (index >= 7) li.classList.add("d-none");
+
+        li.innerHTML = `
+      <img src="${channel.profile}" alt="${channel.name}" class="sidebar-profile">
+      <span class="subscription-name flex-grow-1">${channel.name}</span>
+      <span class="sidebar-live-dot ${channel.isLive ? 'live' : ''}"></span>
+    `;
+        container.appendChild(li);
+    });
+
+    const toggleBtn = document.getElementById("toggle-subscription");
+    let expanded = false;
+
+    // 더보기 버튼 클릭 시 나머지 항목 토글
+    toggleBtn.addEventListener("click", () => {
+        expanded = !expanded;
+        document.querySelectorAll(".subscription-item").forEach((el, i) => {
+            if (i >= 7) el.classList.toggle("d-none", !expanded);
+        });
+        toggleBtn.querySelector("i").className = expanded
+            ? "bi bi-chevron-up fs-6"
+            : "bi bi-chevron-down fs-6";
+        toggleBtn.querySelector("span").textContent = expanded ? "간단히" : "더보기";
+    });
+}
+
+
+// ============================
+// 🏷 카테고리 바 동적 렌더링
+// ============================
+function renderCategoryBar(categories) {
+    const wrapper = document.getElementById("category-scroll");
+    if (!wrapper) return;
+
+    categories.forEach(cat => {
+        const btn = document.createElement("button");
+        btn.className = `btn px-3 py-1 ${cat.active ? "btn-light" : "btn-dark-grey text-white"} rounded`;
+        btn.textContent = cat.name;
+        wrapper.appendChild(btn);
+    });
+}
+
+
+// ============================
 // 초기 실행
 // ============================
-window.addEventListener('resize', handleResize);
 window.addEventListener('DOMContentLoaded', () => {
     handleResize();
     initCategoryScrollEvents();
-
-    // ✅ 동영상 카드 렌더링
-    renderVideoCards(videoDataList);
+    renderCategoryBar(categoryList);       // 카테고리 바 렌더링
+    renderVideoCards(videoDataList);       // 비디오 카드 렌더링
+    renderSubscriptions(subscriptionList); // 구독 목록 렌더링
 });

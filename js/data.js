@@ -97,3 +97,30 @@ const videoDataList = [
         duration: "11:36:16"
     }
 ];
+
+const subscriptionList = [
+    { name: "Hello Korea", profile: `${basePath}sub-profile1.png`, isLive: true },
+    { name: "데일리서울 한강", profile: `${basePath}sub-profile2.jpg`, isLive: true },
+    { name: "EBS 컬렉션 - 사이언스", profile: `${basePath}sub-profile3.jpg`, isLive: false },
+    { name: "민음사TV", profile: `${basePath}sub-profile4.jpg`, isLive: false },
+    { name: "B tv 이동진의 파이아키아", profile: `${basePath}sub-profile5.jpg`, isLive: false },
+    { name: "디글 클래식 :Diggle Classic", profile: `${basePath}sub-profile6.jpg`, isLive: false },
+    { name: "출판사 무제 MUZ", profile: `${basePath}sub-profile7.jpg`, isLive: false },
+    { name: "Vito ASMR", profile: `${basePath}sub-profile8.jpg`, isLive: false },
+    { name: "딩고 뮤직 / dingo music", profile: `${basePath}sub-profile9.jpg`, isLive: false },
+    { name: "예술의 이유", profile: `${basePath}sub-profile10.jpg`, isLive: false },
+    { name: "라인개발실록", profile: `${basePath}sub-profile11.jpg`, isLive: false },
+    { name: "JANE HANDCOCK", profile: `${basePath}sub-profile12.jpg`, isLive: false },
+];
+
+const categoryList = [
+    { name: "전체", active: true },
+    { name: "음악" },
+    { name: "게임" },
+    { name: "라이브" },
+    { name: "요리" },
+    { name: "최근 업로드" },
+    { name: "감상한 영상" },
+    { name: "새로운 추천" },
+    { name: "추가" }
+];

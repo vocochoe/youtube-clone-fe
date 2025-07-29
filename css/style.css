@@ -157,6 +157,20 @@ form:focus-within input.form-control {
     font-size: 0.93rem;
     font-weight: 500;
     margin-top: 4px;
+
+
+}
+
+.subscription-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 130px;
+    font-size: 0.93rem;
+    font-weight: 500;
+    margin-top: 4px;
+    vertical-align: middle;
 }
 
 .sidebar-section-title {
@@ -180,8 +194,8 @@ form:focus-within input.form-control {
 
 .sidebar-live-dot {
     display: inline-block;
-    width: 8px;
-    height: 8px;
+    width: 4px;
+    height: 4px;
     border-radius: 50%;
     background: #3ea6ff;
     margin-left: auto;
@@ -366,6 +380,7 @@ form:focus-within input.form-control {
     margin-bottom: 12px;
     white-space: nowrap;
     margin-left: 0;
+    padding-bottom: 8px;
 }
 
 .scroll-btn {

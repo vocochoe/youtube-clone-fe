@@ -149,22 +149,10 @@
         <li class="sidebar-section-title mt-2 mb-1 px-2 fw-bold text-secondary small extra-menu">
             구독
         </li>
-        <li class="sidebar-item d-flex align-items-center gap-3 py-2 extra-menu">
-            <img src="../assets/images/profile2.jpg" alt="데일리서울 한강" class="sidebar-profile">
-            <span class="menu-text flex-grow-1">데일리서울 한강</span>
-            <span class="sidebar-live-dot live"></span>
-        </li>
-        <li class="sidebar-item d-flex align-items-center gap-3 py-2 extra-menu">
-            <img src="../assets/images/profile1.png" alt="Hello Korea" class="sidebar-profile">
-            <span class="menu-text flex-grow-1">Hello Korea</span>
-            <span class="sidebar-live-dot live"></span>
-        </li>
-        <li class="sidebar-item d-flex align-items-center gap-3 py-2 extra-menu">
-            <img src="../assets/images/profile3.jpg" alt="EBS 컬렉션" class="sidebar-profile">
-            <span class="menu-text flex-grow-1">EBS 컬렉션</span>
-            <span class="sidebar-live-dot live"></span>
-        </li>
-        <li id="toggle-extra" class="sidebar-item d-flex align-items-center gap-3 py-2 sidebar-more extra-menu">
+        <ul id="subscription-list" class="list-unstyled extra-menu px-2">
+            <!-- JS로 동적 구독자 생성 -->
+        </ul>
+        <li id="toggle-subscription" class="sidebar-item d-flex align-items-center gap-3 py-2 mx-3 sidebar-more extra-menu">
             <i class="bi bi-chevron-down fs-6"></i>
             <span class="menu-text">더보기</span>
         </li>
@@ -179,14 +167,7 @@
         <button class="btn btn-dark d-none rounded-pill scroll-btn" id="scroll-left"><i class="bi bi-chevron-left"></i>
         </button>
         <div class="category-wrapper flex-nowrap overflow-auto d-flex gap-2 px-1" id="category-scroll">
-            <button class="btn btn-light rounded px-3 py-1">전체</button>
-            <button class="btn btn-dark-grey rounded text-white px-3 py-1">음악</button>
-            <button class="btn btn-dark-grey rounded text-white px-3 py-1">게임</button>
-            <button class="btn btn-dark-grey rounded text-white px-3 py-1">라이브</button>
-            <button class="btn btn-dark-grey rounded text-white px-3 py-1">요리</button>
-            <button class="btn btn-dark-grey rounded text-white px-3 py-1">최근 업로드</button>
-            <button class="btn btn-dark-grey rounded text-white px-3 py-1">감상한 영상</button>
-            <button class="btn btn-dark-grey rounded text-white px-3 py-1">새로운 추천</button>
+            <!-- JS로 동적 카테고리 생성 -->
         </div>
         <button class="btn btn-dark rounded-pill scroll-btn " id="scroll-right"><i class="bi bi-chevron-right"></i>
         </button>
