@@ -204,7 +204,9 @@ function renderCategoryBar(categories) {
 window.addEventListener('DOMContentLoaded', () => {
     handleResize();
     initCategoryScrollEvents();
-    renderCategoryBar(categoryList);       // 카테고리 바 렌더링
-    renderVideoCards(videoDataList);       // 비디오 카드 렌더링
-    renderSubscriptions(subscriptionList); // 구독 목록 렌더링
+    renderCategoryBar(categoryList);
+    renderVideoCards(videoDataList);
+    renderSubscriptions(subscriptionList);
 });
+
+window.addEventListener('resize', handleResize);
