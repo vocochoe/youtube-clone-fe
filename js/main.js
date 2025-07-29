@@ -103,10 +103,56 @@ document.addEventListener('click', function (e) {
 });
 
 // ============================
+// 비디오 카드 동적 생성
+// ============================
+function renderVideoCards(videoData) {
+    const row = document.querySelector(".row");
+    if (!row) return;
+
+    videoData.forEach(video => {
+        const col = document.createElement("div");
+        col.className = "col-lg-4 col-md-6 col-sm-12 mb-5";
+
+        col.innerHTML = `
+        <div class="video-card">
+            <div class="thumbnail-wrapper position-relative mb-3">
+                <img src="${video.thumbnail}" class="img-fluid thumbnail" alt="썸네일">
+                <div class="progress-bg"><div class="progress-fill"></div></div>
+                <span class="video-duration badge bg-dark position-absolute bottom-0 end-0 m-1">${video.duration}</span>
+            </div>
+            <div class="d-flex mt-2 align-items-start mb-3">
+                <img src="${video.profile}" class="channel-icon me-2" alt="채널 이미지">
+                <div class="video-info flex-grow-1">
+                    <p class="video-title text-white mb-1">${video.title}</p>
+                    <p class="video-meta text-secondary small mb-0">${video.channel}</p>
+                    <p class="video-meta text-secondary small mb-0">조회수 ${video.views} · ${video.uploaded}</p>
+                </div>
+                <div class="menu-wrapper position-relative">
+                    <i class="bi bi-three-dots-vertical text-white fs-6 menu-toggle" role="button"></i>
+                    <ul class="video-menu text-white p-2 rounded shadow-sm position-absolute d-none">
+                        <li class="dropdown-item">현재 재생목록에 추가</li>
+                        <li class="dropdown-item">나중에 볼 동영상에 저장</li>
+                        <li class="dropdown-item">오프라인 저장</li>
+                        <li class="dropdown-item">공유</li>
+                        <li class="dropdown-item text-danger">신고</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        `;
+
+        row.appendChild(col);
+    });
+}
+
+// ============================
 // 초기 실행
 // ============================
 window.addEventListener('resize', handleResize);
 window.addEventListener('DOMContentLoaded', () => {
     handleResize();
     initCategoryScrollEvents();
+
+    // ✅ 동영상 카드 렌더링
+    renderVideoCards(videoDataList);
 });
