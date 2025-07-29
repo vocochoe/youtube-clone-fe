@@ -4,6 +4,14 @@
 const menuBtn = document.getElementById('menu-toggle');
 const sidebar = document.getElementById('side-bar');
 
+const userIcon = document.querySelector('.user-icon');
+const profileMenu = document.getElementById('profile-menu');
+
+userIcon.addEventListener('click', (e) => {
+    e.stopPropagation();  // 클릭 버블링 방지
+    profileMenu.classList.toggle('d-none');
+});
+
 menuBtn.addEventListener('click', () => {
     const isMobile = window.innerWidth <= 768;
     const isMidSize = window.innerWidth <= 1450;
@@ -99,6 +107,11 @@ document.addEventListener('click', function (e) {
         const wrapper = e.target.closest(".menu-wrapper");
         const menu = wrapper.querySelector(".video-menu");
         menu.classList.toggle("d-none");
+    }
+
+    // 다른 곳 클릭 시 메뉴 닫기
+    if (!profileMenu.classList.contains('d-none') && !profileMenu.contains(e.target)) {
+        profileMenu.classList.add('d-none');
     }
 });
 

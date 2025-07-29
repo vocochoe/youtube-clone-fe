@@ -78,6 +78,37 @@ form:focus-within input.form-control {
     padding-left: 40px;
 }
 
+
+/* ===== PROFILE MENU ===== */
+.profile-menu {
+    background-color: #212121;
+    color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    top: 56px;
+    right: 12px;
+    width: 260px;
+    z-index: 1050;
+}
+
+.profile-menu .menu-item {
+    cursor: pointer;
+    transition: background 0.2s ease;
+    font-size: 0.9rem;
+}
+
+.profile-menu .menu-item:hover {
+    background-color: #383838;
+}
+
+.channel-link {
+    color: #3ea6ff;
+    font-size: 0.875rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
 /* ===== BUTTONS ===== */
 .btn-dark-grey {
     background-color: #303030;
@@ -370,7 +401,7 @@ form:focus-within input.form-control {
 /* ---- CATEGORY BAR ---- */
 .category-bar {
     position: sticky;
-    top: -12px;
+    top: 0px;
     z-index: 1029;
     background-color: #181818;
     display: flex;
