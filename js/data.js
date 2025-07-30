@@ -1,10 +1,13 @@
-// 기본 경로 설정
-const relativeBasePath = "../assets/images/";
-const absoluteBasePath = "https://vocochoe.github.io/youtube-clone-fe/assets/images/";
+// ============================
+// 이미지 경로 자동 설정
+// ============================
+const basePath = location.hostname.includes('github.io')
+    ? "https://vocochoe.github.io/youtube-clone-fe/assets/images/"
+    : "../assets/images/";
 
-const basePath = relativeBasePath;
-//const basePath = absoluteBasePath;
-
+// ============================
+// 비디오 데이터
+// ============================
 const videoDataList = [
     {
         id: 1,
@@ -260,7 +263,9 @@ const videoDataList = [
     }
 ];
 
-
+// ============================
+// 구독 채널 데이터
+// ============================
 const subscriptionList = [
     {
         name: "Hello Korea",
@@ -324,7 +329,9 @@ const subscriptionList = [
     }
 ];
 
-
+// ============================
+// 카테고리 데이터
+// ============================
 const categoryList = [
     {name: "전체", active: true},
     {name: "음악"},
