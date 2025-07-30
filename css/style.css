@@ -376,7 +376,6 @@ form:focus-within input.form-control {
 /* ===== MAIN CONTENT ===== */
 #main-content {
     margin-left: 240px;
-    margin-top: 12px;
     padding: 56px 12px 12px 12px;
     height: 100vh;
     overflow-y: auto;
@@ -400,7 +399,7 @@ form:focus-within input.form-control {
 /* ---- CATEGORY BAR ---- */
 .category-bar {
     position: sticky;
-    top: 0px;
+    top: 0;
     z-index: 1029;
     background-color: #181818;
     display: flex;
