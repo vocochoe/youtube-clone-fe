@@ -1,15 +1,10 @@
 // ============================
 // 공통 레이아웃 로드 & 초기화
 // ============================
+
 document.addEventListener("DOMContentLoaded", async () => {
     try {
-        const [headerRes, sidebarRes] = await Promise.all([
-            fetch("../partials/header.html"),   // 상대 경로 확인
-            fetch("../partials/sidebar.html")
-        ]);
-
-        const headerHtml = await headerRes.text();
-        const sidebarHtml = await sidebarRes.text();
+        const { headerHtml, sidebarHtml } = await loadPartials(); // 별도 함수 사용
 
         // ===== 1. Header 삽입 =====
         const headerPlaceholder = document.getElementById('header-placeholder');
@@ -38,6 +33,29 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.error("Layout load error:", err);
     }
 });
+
+// ============================
+// Partial 로드 함수
+// ============================
+async function loadPartials() {
+    const basePath = location.hostname.includes('github.io')
+        ? '/youtube-clone-fe/'  // GitHub Pages
+        : '../';                // 로컬
+
+    const [headerRes, sidebarRes] = await Promise.all([
+        fetch(`${basePath}partials/header.html`),
+        fetch(`${basePath}partials/sidebar.html`)
+    ]);
+
+    if (!headerRes.ok || !sidebarRes.ok) {
+        throw new Error('Failed to load partials');
+    }
+
+    return {
+        headerHtml: await headerRes.text(),
+        sidebarHtml: await sidebarRes.text()
+    };
+}
 
 // ============================
 // 전역 변수
