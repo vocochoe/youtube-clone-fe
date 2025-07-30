@@ -2,8 +2,8 @@
 const relativeBasePath = "../assets/images/";
 const absoluteBasePath = "https://vocochoe.github.io/youtube-clone-fe/assets/images/";
 
-//const basePath = relativeBasePath;
-const basePath = absoluteBasePath;
+const basePath = relativeBasePath;
+//const basePath = absoluteBasePath;
 
 const videoDataList = [
     {
@@ -36,15 +36,15 @@ const videoDataList = [
     },
     {
         id: 3,
-        title: "요청이 많아 직접 알려드리는 나혼산 크림스튜 | 빠니보틀 편 레시피",
-        channel: "요정재형",
+        title: "모닥불에서 지브리 밥 크림 스튜와 치즈",
+        channel: "ALPHA TEC",
         views: "470만회",
         viewsFull: "4,702,567회",
         uploaded: "6개월 전",
         uploadedAbsolute: "2019.03.31",
         thumbnail: `${basePath}thumbnail3.jpg`,
         profile: `${basePath}profile3.jpg`,
-        duration: "8:18",
+        duration: "12:40",
         iframeUrl: "https://www.youtube.com/embed/--UAe9AsjfU?si=oPt8GHHgAuTbMSeh",
         description: "화이트 소스는 일제의 인스턴트 분말을 사용하고 있습니다.\n이번에는 지브리 애니메이션 '마루 밑 아리에 티'에서 아버지가 빵에 큰 구멍 뚫린 치즈를 얹어 가마에서 구워 치즈 빵과 나무 그릇에받는 브로콜리가 들어간 크림 스튜를 만들어 보았습니다.\n분위기가 나도록 재료, 식기, BGM 등을 선택 제작하고 있으므로 즐길 수 있습니다.\n나무 그릇은 올리브의 그릇을 사용하고 있습니다."
     },
