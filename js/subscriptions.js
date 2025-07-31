@@ -15,6 +15,7 @@ function uploadedToHours(uploaded) {
     const num = parseInt(uploaded.replace(/[^0-9]/g, ""), 10);
     if (uploaded.includes("시간")) return num;
     if (uploaded.includes("일")) return num * 24;
+    if (uploaded.includes("주")) return num * 24 * 7;
     if (uploaded.includes("개월")) return num * 24 * 30;
     if (uploaded.includes("년")) return num * 24 * 365;
     return Number.MAX_SAFE_INTEGER; // 혹시 알 수 없는 형식

@@ -534,3 +534,57 @@ form:focus-within input.form-control {
 .video-menu li:hover {
     background-color: #383838;
 }
+
+
+/* ---- VIDEO PAGE ----  */
+.video-section {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.recommend-section {
+    max-width: 400px;
+}
+
+@media (max-width: 1280px) {
+    .main-content {
+        flex-direction: column !important;
+    }
+
+    .recommend-section {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-top: 20px;
+        overflow-x: auto;
+    }
+
+    .recommend-section .video-card {
+        display: flex !important;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .recommend-section .thumbnail-wrapper {
+        width: 180px;
+        flex-shrink: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    #video-iframe {
+        height: 200px !important;
+    }
+
+    .video-section {
+        padding: 0 !important;
+    }
+
+    .video-section .d-flex.align-items-center.gap-2 {
+        flex-wrap: wrap;
+    }
+
+    .video-section .btn-dark-grey {
+        flex-grow: 1;
+        justify-content: center;
+    }
+}

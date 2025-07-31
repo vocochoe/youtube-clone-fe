@@ -89,25 +89,36 @@ function initSidebarEvents() {
 
     if (!menuBtn || !sidebar) return;
 
-    // 햄버거 버튼 클릭
     menuBtn.addEventListener('click', () => {
         const isMobile = window.innerWidth <= 768;
         const isMidSize = window.innerWidth <= 1450;
         const isOpen = sidebar.classList.contains('overlay') && sidebar.classList.contains('active');
+        const isVideoDetailPage = document.body.classList.contains('video-detail-page'); // 🔥 추가
 
-        if (isMobile || isMidSize) {
+        if (isVideoDetailPage) {
+            // 상세 페이지는 항상 모바일과 동일하게 동작
             if (isOpen) {
                 sidebar.classList.remove('active', 'overlay', 'mobile-open', 'mid-open');
-                sidebar.classList.toggle('d-none', isMobile);
-                sidebar.classList.toggle('collapsed', isMidSize && !isMobile);
+                sidebar.classList.add('d-none');
             } else {
                 sidebar.classList.remove('d-none', 'collapsed');
-                sidebar.classList.add('overlay', 'active');
-                sidebar.classList.toggle('mobile-open', isMobile);
-                sidebar.classList.toggle('mid-open', isMidSize && !isMobile);
+                sidebar.classList.add('overlay', 'active', 'mobile-open');
             }
         } else {
-            sidebar.classList.toggle('collapsed');
+            if (isMobile || isMidSize) {
+                if (isOpen) {
+                    sidebar.classList.remove('active', 'overlay', 'mobile-open', 'mid-open');
+                    sidebar.classList.toggle('d-none', isMobile);
+                    sidebar.classList.toggle('collapsed', isMidSize && !isMobile);
+                } else {
+                    sidebar.classList.remove('d-none', 'collapsed');
+                    sidebar.classList.add('overlay', 'active');
+                    sidebar.classList.toggle('mobile-open', isMobile);
+                    sidebar.classList.toggle('mid-open', isMidSize && !isMobile);
+                }
+            } else {
+                sidebar.classList.toggle('collapsed');
+            }
         }
     });
 }
@@ -120,13 +131,15 @@ function initGlobalClickHandler() {
         // ===== 사이드바 닫기 =====
         const isOverlayOpen = sidebar?.classList.contains('overlay') && sidebar?.classList.contains('active');
         const clickedOutsideSidebar = !sidebar?.contains(e.target) && !menuBtn?.contains(e.target);
+        const isVideoDetailPage = document.body.classList.contains('video-detail-page'); // 추가
 
         if (isOverlayOpen && clickedOutsideSidebar) {
             sidebar.classList.remove('active');
+
             const isMobile = window.innerWidth <= 768;
             const isMidSize = window.innerWidth <= 1450;
 
-            if (isMobile) {
+            if (isVideoDetailPage || isMobile) {
                 sidebar.classList.remove('overlay');
                 sidebar.classList.add('d-none');
             } else if (isMidSize) {
@@ -160,16 +173,23 @@ function handleResize() {
     const isMobile = window.innerWidth <= 768;
     const isMidSize = window.innerWidth <= 1450;
 
+    const isVideoDetailPage = document.body.classList.contains('video-detail-page');
+
     sidebar.classList.remove('overlay', 'active', 'mobile-open', 'mid-open');
 
-    if (isMobile) {
+    if (isVideoDetailPage) {
         sidebar.classList.add('d-none');
-        sidebar.classList.remove('collapsed');
-    } else if (isMidSize) {
-        sidebar.classList.remove('d-none');
-        sidebar.classList.add('collapsed');
+        sidebar.classList.remove('collapsed', 'overlay', 'active');
     } else {
-        sidebar.classList.remove('d-none', 'collapsed');
+        if (isMobile) {
+            sidebar.classList.add('d-none');
+            sidebar.classList.remove('collapsed');
+        } else if (isMidSize) {
+            sidebar.classList.remove('d-none');
+            sidebar.classList.add('collapsed');
+        } else {
+            sidebar.classList.remove('d-none', 'collapsed');
+        }
     }
 }
 
