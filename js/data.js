@@ -21,7 +21,10 @@ const videoDataList = [
         profile: `${basePath}profile1.jpg`,
         duration: "1:33:57",
         iframeUrl: "https://www.youtube.com/embed/MC2mW_PnlxU?si=lSrAcc274vzX9Z9_",
-        description: "올해 2분기 카드 사용액이 지난해 같은 기간보다 증가했습니다.\n대내 불확실성이 줄어들고 경기 부양에 대한 기대가 높아지며\n소비심리가 회복되고 있다는 분석입니다."
+        description: "올해 2분기 카드 사용액이 지난해 같은 기간보다 증가했습니다.\n대내 불확실성이 줄어들고 경기 부양에 대한 기대가 높아지며\n소비심리가 회복되고 있다는 분석입니다.",
+        subscribers: 1520000,
+        likes: 5300,
+        dislikes: 1234,
     },
     {
         id: 2,
@@ -35,7 +38,10 @@ const videoDataList = [
         profile: `${basePath}profile2.jpg`,
         duration: "3:09:55",
         iframeUrl: "https://www.youtube.com/embed/nQkunoZiLm4?si=3T4KiIGBJKOZt0WL",
-        description: "여름 햇살처럼 상큼한 오렌지팝🍊\n기분전환이 필요할 땐, 이 청량한 팝송들로 리프레시하세요🌿\n\n지금 재생되는 이 영상은\n여름에 듣기 좋은 노래,\n상큼하고 청량한 팝송,\n드라이브 음악,\n햇살 가득한 여름 플레이리스트,\n기분 좋아지는 음악,\n일할 때 듣는 팝송을 찾는 분들께 추천합니다🎧"
+        description: "여름 햇살처럼 상큼한 오렌지팝🍊\n기분전환이 필요할 땐, 이 청량한 팝송들로 리프레시하세요🌿\n\n지금 재생되는 이 영상은\n여름에 듣기 좋은 노래,\n상큼하고 청량한 팝송,\n드라이브 음악,\n햇살 가득한 여름 플레이리스트,\n기분 좋아지는 음악,\n일할 때 듣는 팝송을 찾는 분들께 추천합니다🎧",
+        subscribers: 24000,
+        likes: 143,
+        dislikes: 1234,
     },
     {
         id: 3,
@@ -49,7 +55,10 @@ const videoDataList = [
         profile: `${basePath}profile3.jpg`,
         duration: "12:40",
         iframeUrl: "https://www.youtube.com/embed/--UAe9AsjfU?si=oPt8GHHgAuTbMSeh",
-        description: "화이트 소스는 일제의 인스턴트 분말을 사용하고 있습니다.\n이번에는 지브리 애니메이션 '마루 밑 아리에 티'에서 아버지가 빵에 큰 구멍 뚫린 치즈를 얹어 가마에서 구워 치즈 빵과 나무 그릇에받는 브로콜리가 들어간 크림 스튜를 만들어 보았습니다.\n분위기가 나도록 재료, 식기, BGM 등을 선택 제작하고 있으므로 즐길 수 있습니다.\n나무 그릇은 올리브의 그릇을 사용하고 있습니다."
+        description: "화이트 소스는 일제의 인스턴트 분말을 사용하고 있습니다.\n이번에는 지브리 애니메이션 '마루 밑 아리에 티'에서 아버지가 빵에 큰 구멍 뚫린 치즈를 얹어 가마에서 구워 치즈 빵과 나무 그릇에받는 브로콜리가 들어간 크림 스튜를 만들어 보았습니다.\n분위기가 나도록 재료, 식기, BGM 등을 선택 제작하고 있으므로 즐길 수 있습니다.\n나무 그릇은 올리브의 그릇을 사용하고 있습니다.",
+        subscribers: 4124800,
+        likes: 89420,
+        dislikes: 15434,
     },
     {
         id: 4,
@@ -63,7 +72,10 @@ const videoDataList = [
         profile: `${basePath}profile4.jpg`,
         duration: "27:35",
         iframeUrl: "https://www.youtube.com/embed/qHRqfeSbHlE?si=M20CSdICSgiTIToM",
-        description: "서울국제도서전(쟁)에 참가했습니다. 이겨냈는지 져버렸는지 모르겠습니다.\n\n촬영 #신우주픽처스\n출연 #박정민\n제작 #출판사무제\nmusic by #구름"
+        description: "서울국제도서전(쟁)에 참가했습니다. 이겨냈는지 져버렸는지 모르겠습니다.\n\n촬영 #신우주픽처스\n출연 #박정민\n제작 #출판사무제\nmusic by #구름",
+        subscribers: 123520,
+        likes: 232,
+        dislikes: 12,
     },
     {
         id: 5,
@@ -77,7 +89,10 @@ const videoDataList = [
         profile: `${basePath}profile5.jpg`,
         duration: "48:05",
         iframeUrl: "https://www.youtube.com/embed/JU13n1vlTEk?si=lSq6L3hLl-XnV9ja",
-        description: "📢 📢댓글 이벤트\n댓글로 시청 소감 또는 【취미는 과학】이 다루었으면 하는 주제를 남겨주세요! 추첨을 통해 정동희 교수의 추천도서 《우주를 만드는 16가지 방법》을 선물로 드립니다.\n✅ 참여 기간 : 7/26(토) ~ 7/31(목)\n✅ 당첨자 발표 : 8/1(금) 고정 댓글 확인!\n\n우주의 시작, 빅뱅에 대해 우리가 갖고 있던 오해! 사실은 한 점에서 터진게 아니었다?! 빅뱅, 세 가지만 알면 끝난다는데... 138억 년 간 이어져 온 우주의 어제, 오늘과 내일을 살펴본다."
+        description: "📢 📢댓글 이벤트\n댓글로 시청 소감 또는 【취미는 과학】이 다루었으면 하는 주제를 남겨주세요! 추첨을 통해 정동희 교수의 추천도서 《우주를 만드는 16가지 방법》을 선물로 드립니다.\n✅ 참여 기간 : 7/26(토) ~ 7/31(목)\n✅ 당첨자 발표 : 8/1(금) 고정 댓글 확인!\n\n우주의 시작, 빅뱅에 대해 우리가 갖고 있던 오해! 사실은 한 점에서 터진게 아니었다?! 빅뱅, 세 가지만 알면 끝난다는데... 138억 년 간 이어져 온 우주의 어제, 오늘과 내일을 살펴본다.",
+        subscribers: 1620421,
+        likes: 12353,
+        dislikes: 453,
     },
     {
         id: 6,
@@ -91,7 +106,10 @@ const videoDataList = [
         profile: `${basePath}profile6.jpg`,
         duration: "19:11",
         iframeUrl: "https://www.youtube.com/embed/pfU0QORkRpY?si=JZODucxzxRM9D918",
-        description: "Ylang Ylang EP live from the studio. Vinyl available everywhere: https://smarturl.it/FKJYlangYlang\n\nDirected by Kasuy\nEdited by Kasuy\nAssistant: Antoni Ryan\nColourist: Stephan Derluguian"
+        description: "Ylang Ylang EP live from the studio. Vinyl available everywhere: https://smarturl.it/FKJYlangYlang\n\nDirected by Kasuy\nEdited by Kasuy\nAssistant: Antoni Ryan\nColourist: Stephan Derluguian",
+        subscribers: 2763541,
+        likes: 89242,
+        dislikes: 7262,
     },
     {
         id: 7,
@@ -105,7 +123,10 @@ const videoDataList = [
         profile: `${basePath}profile7.jpg`,
         duration: "9:57",
         iframeUrl: "https://www.youtube.com/embed/-8JTwRH23VY?si=eQ4zpxPWjbuOGmVJ",
-        description: "자비없는 성능....!\n고수처럼 Claude Code 설정하기!"
+        description: "자비없는 성능....!\n고수처럼 Claude Code 설정하기!",
+        subscribers: 125642,
+        likes: 234,
+        dislikes: 14
     },
     {
         id: 8,
@@ -119,7 +140,10 @@ const videoDataList = [
         profile: `${basePath}profile8.jpg`,
         duration: "19:16",
         iframeUrl: "https://www.youtube.com/embed/I9JgUpsyMaU?si=Ey50byglcejXn-Ua",
-        description: "티빙에서 스트리밍 : https://tving.onelink.me/xHqC/30a78d6f"
+        description: "티빙에서 스트리밍 : https://tving.onelink.me/xHqC/30a78d6f",
+        subscribers: 486412,
+        likes: 4200,
+        dislikes: 35
     },
     {
         id: 9,
@@ -133,7 +157,10 @@ const videoDataList = [
         profile: `${basePath}profile9.jpg`,
         duration: "11:36:16",
         iframeUrl: "https://www.youtube.com/embed/z441XPhg-qo?si=38p2dlaVDFeKYvSR",
-        description: "[4K] 지금 빗속으로 걸어가는 나는 우산이 없어요. 폭우가 내리는 도시의 골목길에서 듣는 빗소리.\n📷촬영 장소: 세종특별시 나성동\n🎬This is a Looping Video for enough Rest."
+        description: "[4K] 지금 빗속으로 걸어가는 나는 우산이 없어요. 폭우가 내리는 도시의 골목길에서 듣는 빗소리.\n📷촬영 장소: 세종특별시 나성동\n🎬This is a Looping Video for enough Rest.",
+        subscribers: 89265,
+        likes: 610,
+        dislikes: 9
     },
     {
         id: 10,
@@ -147,7 +174,10 @@ const videoDataList = [
         profile: `${basePath}profile10.jpg`,
         duration: "1:03:40",
         iframeUrl: "https://www.youtube.com/embed/wpjBPlKLsBc?si=HFbt1X1Ni_KvKLGJ",
-        description: "안녕하세요, 데일리서울입니다.\n\n조용히 찾아와 함께 경치와 음악을 즐겨주시는 분들을 위해, 최근 듣고 있는 잔잔한 한국 곡들로 플레이리스트를 준비해왔어요. 상냥한 곡도 쓸쓸한 곡도 뒤섞여 있는, 유독 걸음이 무거운 저녁에 가만히 귀 기울이기 좋은 곡들을 위주로 구성해봤어요. 때로는 나와 비슷한 쓸쓸함을 느끼며 이 도시를 걷는 누군가가 있다는 사실만으로도 묘하게 위로가 되더라고요.\n\n언제나처럼 이 채널이 도시 속을 살아가는, 혹은 이 도시를 그리는 여러분에게 숨 돌릴 수 있는 구석이 되기를 바라며 플레이리스트를 올려봅니다."
+        description: "안녕하세요, 데일리서울입니다.\n\n조용히 찾아와 함께 경치와 음악을 즐겨주시는 분들을 위해...",
+        subscribers: 34527,
+        likes: 380,
+        dislikes: 7
     },
     {
         id: 11,
@@ -161,7 +191,10 @@ const videoDataList = [
         profile: `${basePath}profile11.jpg`,
         duration: "11:47",
         iframeUrl: "https://www.youtube.com/embed/W9NQ006imjM?si=kHBSm8FTEVyzoamT",
-        description: "버려진 섬 나오시마는 어떻게 현대미술 성지가 되었을까?\n\n죽기 전 꼭 가봐야 할 여행지로 꼽힐만큼 유명한 예술섬, 나오시마. 하지만 1980년대까지만 하더라도 이 섬은 사람이 떠나 황폐해진 '버려진' 섬이었는데요. 한 기업인과 유명 건축가의 용기있는 결심이 일본 정부의 정책적 지원과 맞물려, 섬 전체를 한 점의 예술로 바꿔놓았습니다.\n\n지역과 예술을 사랑하는 사람들의 노력으로 탄생한, 전 세계 수많은 현대미술의 성지들. 한국에서도 비슷한 사례를 찾아볼 수 있는데요."
+        description: "버려진 섬 나오시마는 어떻게 현대미술 성지가 되었을까?\n...",
+        subscribers: 251606,
+        likes: 2400,
+        dislikes: 28
     },
     {
         id: 12,
@@ -175,7 +208,10 @@ const videoDataList = [
         profile: `${basePath}profile12.jpg`,
         duration: "21:15",
         iframeUrl: "https://www.youtube.com/embed/A_d-QJfMBUU?si=AiPiUyyrInQ0bLel",
-        description: "링상 수상자가 말하는 국가 간 AI 경쟁 상황은? AI에 대한 두려움은 과장되었다?\n싱가포르에서 만난 Meta 수석 AI 과학자 얀 르쿤 박사와의 대화를 공개합니다!\n\n즐거움과 유익함이 가득가득, 김지윤의 지식Play!"
+        description: "튜링상 수상자가 말하는 국가 간 AI 경쟁 상황은?...",
+        subscribers: 1251882,
+        likes: 9200,
+        dislikes: 45
     },
     {
         id: 13,
@@ -189,7 +225,10 @@ const videoDataList = [
         profile: `${basePath}profile13.jpg`,
         duration: "59:40",
         iframeUrl: "https://www.youtube.com/embed/_NZT3pxieZE?si=yikVt0l7mlBsYYgf",
-        description: "00:00 | 하이라이트\n00:42 | 오프닝\n01:32 | 오늘의 게스트\n03:25 | “내가 가장 무서워하는 것은?”\n10:14 | 오늘의 책 에드거 앨런 포 『에드거 앨런 포 단편선』\n12:25 | 인상 깊었던 단편\n22:14 | 주제 1. 어셔가의 몰락 : 공포에 끌리는 이유\n30:00 | 1-1. 나는 나를 믿을 수 있는가?\n35:22 | 주제 2. 도둑맞은 편지 : 트릭의 탄생\n44:56 | 2-1. 나만의 비밀 편지를 숨긴다면?\n51:04 | 마무리 책 추천\n56:13 | 소감\n58:56 | 다음 모임 책"
+        description: "00:00 | 하이라이트\n00:42 | 오프닝\n...",
+        subscribers: 83557,
+        likes: 1500,
+        dislikes: 21
     },
     {
         id: 14,
@@ -203,7 +242,10 @@ const videoDataList = [
         profile: `${basePath}profile14.jpg`,
         duration: "3:42",
         iframeUrl: "https://www.youtube.com/embed/9YI4U1N3RAc?si=cv2VMxS9Uyp-HnKF",
-        description: "Instagram:   / msjanehandcock  \nFacebook:   / msjanehandcock  \nX:   / msjanehandcock  \nYouTube:    / @msjanehandcock  \nLil daddy’s from LA’s on his way\nand I can't wait to see\ndiamonds dancing on his neck\npretty smile\nVANS on his feet"
+        description: "Instagram: ...",
+        subscribers: 621952,
+        likes: 15800,
+        dislikes: 67
     },
     {
         id: 15,
@@ -217,7 +259,10 @@ const videoDataList = [
         profile: `${basePath}profile15.jpg`,
         duration: "8:45",
         iframeUrl: "https://www.youtube.com/embed/mIq7VYJflaE?si=wWj9PjXKxOLC93si",
-        description: "유 퀴즈 온 더 블록 EP.304 선공개\n티빙에서 스트리밍 : https://tving.onelink.me/xHqC/30a78d6f\n유 퀴즈 온 더 블럭\n[수] 저녁 8:45 tvN"
+        description: "유 퀴즈 온 더 블록 EP.304 선공개...",
+        subscribers: 1982123,
+        likes: 850,
+        dislikes: 12
     },
     {
         id: 16,
@@ -231,7 +276,10 @@ const videoDataList = [
         profile: `${basePath}profile16.jpg`,
         duration: "12:50",
         iframeUrl: "https://www.youtube.com/embed/0QHoEDvgCIY?si=gzcBUOXIxMqAUndx",
-        description: "이번주도 잘 보냈니?\n이번주도 치열했다..그나저나 도대체 진짜 여행 계획은 언제짜지..\n일단 옵치 큐 돌리고 생각해보까?\n"
+        description: "이번주도 잘 보냈니?...",
+        subscribers: 502819,
+        likes: 15621,
+        dislikes: 44
     },
     {
         id: 17,
@@ -245,7 +293,10 @@ const videoDataList = [
         profile: `${basePath}profile17.jpg`,
         duration: "16:57",
         iframeUrl: "https://www.youtube.com/embed/3Hr35Kr2aXA?si=GdRCwy7Cnm7M-wmd",
-        description: "악뮤(AKMU)의 킬링보이스를 라이브로!\n띵곡의 향연! 들을수록 좋은 이번 킬링보이스\n힐링하고 가세요🫡💕"
+        description: "악뮤(AKMU)의 킬링보이스를 라이브로!\n...",
+        subscribers: 3254126,
+        likes: 752248,
+        dislikes: 3242
     },
     {
         id: 18,
@@ -259,7 +310,10 @@ const videoDataList = [
         profile: `${basePath}profile18.jpg`,
         duration: "5:36",
         iframeUrl: "https://www.youtube.com/embed/W8mH1Ij3bUk?si=Vt-ZXqYYdnZkxZ02",
-        description: "읽기 쉬운 코드는 생산성을 높입니다 🆙\n코드가 읽기 쉽다면 코드를 읽는 속도도 빨라지고 오해도 줄어듭니다.\n더욱 원활한 협업이 가능해지죠!\n그렇다면 읽기 쉬운 코드는 어떻게 쓸 수 있을까요?\n코드 가독성에 대해 고민해온 엔지니어 Ishikawa 님과 함께 알아봅니다."
+        description: "읽기 쉬운 코드는 생산성을 높입니다...",
+        subscribers: 13225,
+        likes: 181,
+        dislikes: 35
     }
 ];
 

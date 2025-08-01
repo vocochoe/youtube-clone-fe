@@ -25,55 +25,132 @@
 <main id="main-content" class="main-content bg-dark d-flex flex-column flex-xl-row">
 
     <!-- 비디오 상세 섹션 -->
-    <section class="video-section flex-grow-1 pe-xl-3 border border-primary">
+    <section class="video-section flex-grow-1 pe-xl-3">
 
         <!-- 영상 플레이어 (iframe 동적 삽입) -->
-        <div class="video-player mb-3 border border-primary">
-            <iframe id="video-iframe" class="rounded w-100" height="520" src="" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
+        <div class="video-player ratio ratio-16x9 mb-3">
+            <iframe id="video-iframe" class="rounded w-100 h-100" src=""
+                    allowfullscreen
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
             </iframe>
         </div>
 
         <!-- 영상 정보 -->
-        <h5 id="video-title" class="text-white border border-primary"></h5>
+        <h5 id="video-title" class="text-white"></h5>
 
-        <div class="d-flex justify-content-between align-items-center mt-3 border border-primary">
-            <div class="d-flex align-items-center gap-3 border border-primary ">
-                <img id="channel-profile" class="rounded-circle" width="40" height="40" alt="채널 이미지">
+        <div class="video-actions d-flex gap-3 mt-3">
+
+            <!-- 채널 정보 + 구독 버튼 -->
+            <div class="channel-info d-flex align-items-center gap-3 flex-grow-1">
+                <img id="channel-profile" class="rounded-circle" width="40" height="40">
                 <div>
                     <div id="channel-name" class="text-white fw-bold"></div>
                     <div id="subscriber-count" class="text-secondary small">구독자 수 표시</div>
                 </div>
-                <button class="btn btn-light rounded-pill ms-3">구독</button>
+                <button class="btn btn-light rounded-pill">구독</button>
             </div>
 
-            <div class="d-flex align-items-center gap-2 border border-primary">
-                <button class="btn btn-dark-grey rounded-pill"><i class="bi bi-hand-thumbs-up"></i> 좋아요</button>
-                <button class="btn btn-dark-grey rounded-pill"><i class="bi bi-hand-thumbs-down"></i></button>
-                <button class="btn btn-dark-grey rounded-pill"><i class="bi bi-share"></i> 공유</button>
-                <button class="btn btn-dark-grey rounded-pill"><i class="bi bi-three-dots"></i></button>
+            <!-- 버튼 그룹 -->
+            <div class="action-buttons d-flex align-items-center gap-2 flex-wrap">
+
+                <!-- 좋아요/싫어요 -->
+                <div class="btn-group like-dislike-group rounded-pill overflow-hidden">
+                    <button class="btn btn-dark-grey like-btn px-3 d-flex align-items-center gap-2">
+                        <i class="bi bi-hand-thumbs-up"></i>
+                        <span class="like-count text-secondary">0</span>
+                    </button>
+                    <div class="like-divider my-1"></div>
+                    <button class="btn btn-dark-grey dislike-btn px-3 d-flex align-items-center">
+                        <i class="bi bi-hand-thumbs-down"></i>
+                    </button>
+                </div>
+
+                <!-- 공유 버튼 -->
+                <button class="btn btn-dark-grey rounded-pill d-flex align-items-center gap-2 show-lg show-md show-sm">
+                    <i class="bi bi-share"></i> 공유
+                </button>
+
+                <!-- 저장 버튼 -->
+                <button class="btn btn-dark-grey rounded-pill d-flex align-items-center gap-2 show-lg hide-md hide-sm">
+                    <i class="bi bi-plus-lg"></i> 저장
+                </button>
+
+                <!-- 오프라인 저장 버튼 -->
+                <button class="btn btn-dark-grey rounded-pill d-flex align-items-center gap-2 show-lg hide-md show-sm">
+                    <i class="bi bi-download"></i> 오프라인 저장
+                </button>
+
+                <!-- 점 세개 드롭다운 -->
+                <div class="dropdown">
+                    <button class="btn btn-dark-grey rounded-pill d-flex align-items-center gap-2"
+                            data-bs-toggle="dropdown">
+                        <i class="bi bi-three-dots"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                        <li>
+                            <a class="dropdown-item" href="#"><i class="bi bi-flag me-2"></i>신고</a>
+                        </li>
+                        <li class="dropdown-md">
+                            <a class="dropdown-item" href="#"><i class="bi bi-plus-lg me-2"></i>저장</a>
+                        </li>
+                        <li class="dropdown-md dropdown-sm">
+                            <a class="dropdown-item" href="#"><i class="bi bi-download me-2"></i>오프라인 저장</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
 
         <!-- 설명 영역 -->
-        <div id="video-descriptio" class="bg-secondary bg-opacity-25 rounded p-3 mt-3 text-white border border-primary"></div>
+        <div id="video-description" class="bg-secondary bg-opacity-10 rounded p-3 mt-3 text-white"></div>
 
         <!-- 댓글 섹션 -->
-        <section class="comments-section mt-4 border border-primary ">
-            <h6 class="text-white">댓글</h6>
-            <div class="input-group mb-3">
-                <input type="text" class="form-control bg-dark text-white" placeholder="댓글 추가...">
-                <button class="btn btn-outline-light">작성</button>
+        <section class="comments-section mt-4 px-2">
+            <!-- 댓글 헤더 -->
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h6 class="text-white mb-0">댓글 <span id="comment-count">532</span>개</h6>
+
+                <!-- 정렬 기준 드롭다운 -->
+                <div class="dropdown">
+                    <button class="btn btn-dark btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        정렬 기준
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item active" href="#">좋아요 순</a></li>
+                        <li><a class="dropdown-item" href="#">최신순</a></li>
+                    </ul>
+                </div>
             </div>
-            <div id="comments-container">
-                <!-- 댓글 동적 로딩 -->
+
+            <!-- 댓글 입력창 -->
+            <div class="comment-input d-flex align-items-start gap-2 mb-4">
+                <!-- 내 프로필 -->
+                <img src="assets/images/user-icon.png" alt="내 프로필"
+                     class="comment-profile rounded-circle flex-shrink-0">
+
+                <!-- 입력 박스 -->
+                <div class="flex-grow-1">
+                    <input type="text" id="comment-input"
+                           class="form-control bg-dark text-white comment-text-input"
+                           placeholder="댓글 추가...">
+
+                    <!-- 버튼 그룹 -->
+                    <div id="comment-buttons" class="d-flex justify-content-end gap-2 mt-2" style="display: none;">
+                        <button id="cancel-comment" class="btn btn-secondary btn-sm px-3">취소</button>
+                        <button id="submit-comment" class="btn btn-outline-light btn-sm px-3" disabled>댓글</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 댓글 목록 -->
+            <div id="comments-container" class="mb-3 py-1">
+                <!-- JS로 동적 렌더링 -->
             </div>
         </section>
     </section>
 
     <!-- 우측 추천 영상 목록 -->
-    <aside class="recommend-section pt-3 pt-xl-0 border border-primary" style="width: 400px;">
+    <aside class="recommend-section pt-3 pt-xl-0">
         <div id="recommended-videos" class="d-flex flex-xl-column gap-3 overflow-auto">
             <!-- 추천 영상 JS로 동적 생성 -->
         </div>
