@@ -33,12 +33,16 @@ function renderVideoCards(videoData) {
     row.innerHTML = "";
     const fragment = document.createDocumentFragment();
 
+    const baseURL = window.location.hostname.includes("localhost")
+        ? "pages/video.html"
+        : "https://vocochoe.github.io/youtube-clone-fe/pages/video.html";
+
     videoData.forEach(video => {
         const col = document.createElement("div");
         col.className = "col-lg-4 col-md-6 col-sm-12 mb-5";
 
         col.innerHTML = `
-        <div class="video-card">
+        <div class="video-card" data-id="${video.id}" role="button">
             <div class="thumbnail-wrapper position-relative mb-3">
                 <img src="${video.thumbnail}" class="img-fluid thumbnail" alt="썸네일">
                 <div class="progress-bg"><div class="progress-fill"></div></div>
@@ -65,6 +69,11 @@ function renderVideoCards(videoData) {
         </div>
         `;
         fragment.appendChild(col);
+
+
+        col.querySelector(".video-card").addEventListener("click", () => {
+            window.location.href = `${baseURL}?videoId=${video.id}`;
+        });
     });
 
     row.appendChild(fragment);

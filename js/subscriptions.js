@@ -15,6 +15,7 @@ function uploadedToHours(uploaded) {
     const num = parseInt(uploaded.replace(/[^0-9]/g, ""), 10);
     if (uploaded.includes("시간")) return num;
     if (uploaded.includes("일")) return num * 24;
+    if (uploaded.includes("주")) return num * 24 * 7;
     if (uploaded.includes("개월")) return num * 24 * 30;
     if (uploaded.includes("년")) return num * 24 * 365;
     return Number.MAX_SAFE_INTEGER; // 혹시 알 수 없는 형식
@@ -33,6 +34,10 @@ function renderSubscribedVideos(videoList, viewMode = "grid") {
     container.innerHTML = "";
     const fragment = document.createDocumentFragment();
 
+    const baseURL = window.location.hostname.includes("localhost")
+        ? "pages/video.html"
+        : "https://vocochoe.github.io/youtube-clone-fe/pages/video.html";
+
     videoList.forEach(video => {
         const col = document.createElement("div");
 
@@ -44,7 +49,7 @@ function renderSubscribedVideos(videoList, viewMode = "grid") {
         // 카드 구조
         col.innerHTML = viewMode === "grid"
             ? `
-        <div class="video-card">
+        <div class="video-card" data-id="${video.id}" role="button">
             <div class="thumbnail-wrapper position-relative mb-3">
                 <img src="${video.thumbnail}" class="img-fluid thumbnail" alt="썸네일">
                 <div class="progress-bg"><div class="progress-fill"></div></div>
@@ -70,7 +75,7 @@ function renderSubscribedVideos(videoList, viewMode = "grid") {
         </div>
         `
             : `
-        <div class="video-card d-flex align-items-start">
+        <div class="video-card d-flex align-items-start" data-id="${video.id}" role="button">
             <!-- 썸네일 -->
             <div class="thumbnail-wrapper position-relative me-3" style="width: 320px; flex-shrink: 0;">
                 <img src="${video.thumbnail}" class="img-fluid thumbnail" alt="썸네일">
@@ -100,6 +105,10 @@ function renderSubscribedVideos(videoList, viewMode = "grid") {
         `;
 
         fragment.appendChild(col);
+
+        col.querySelector(".video-card").addEventListener("click", () => {
+            window.location.href = `${baseURL}?videoId=${video.id}`;
+        });
     });
 
     container.appendChild(fragment);
