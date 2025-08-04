@@ -26,8 +26,22 @@ document.addEventListener("DOMContentLoaded", async () => {
         handleResize();
         renderSubscriptions(subscriptionList);
 
-        window.addEventListener('resize', handleResize);
+        //window.addEventListener('resize', handleResize);
         initGlobalClickHandler(); // 외부 클릭 이벤트 (사이드바/프로필 메뉴/비디오 메뉴 닫기)
+        initSearch();
+
+        const params = new URLSearchParams(window.location.search);
+        const keyword = params.get("search");
+
+        if (keyword) {
+            const input = document.querySelector(".search-form input");
+            if (input) {
+                input.value = keyword;
+                if (typeof handleSearch === "function") {
+                    handleSearch(keyword.toLowerCase());
+                }
+            }
+        }
 
     } catch (err) {
         console.error("Layout load error:", err);
@@ -236,3 +250,32 @@ function renderSubscriptions(list) {
         toggleBtn.querySelector("span").textContent = expanded ? "간단히" : "더보기";
     });
 }
+
+// ============================
+// 검색 기능 (공통)
+// ============================
+function initSearch() {
+    const searchForm = document.querySelector(".search-form");
+    const searchInput = searchForm?.querySelector("input");
+
+    if (!searchForm || !searchInput) return;
+
+    searchForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const keyword = searchInput.value.trim();
+
+        if (keyword === "") return;
+
+        // 현재 페이지 확인
+        const isMainPage = window.location.pathname.endsWith("index.html") || window.location.pathname.endsWith("/");
+
+        if (isMainPage) {
+            // 메인 페이지라면 -> 직접 필터링
+            handleSearch(keyword);
+        } else {
+            // 다른 페이지라면 -> index.html로 이동하면서 검색어 전달
+            window.location.href = `index.html?search=${encodeURIComponent(keyword)}`;
+        }
+    });
+}
+
