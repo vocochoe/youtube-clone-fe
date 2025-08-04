@@ -445,6 +445,24 @@ form:focus-within input.form-control {
 }
 
 
+/* ==== PREVIEW ==== */
+.preview-video {
+    display: block;
+    opacity: 0;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: opacity 0.2s ease;
+}
+
+.video-card:hover .preview-video {
+    opacity: 1;
+}
+
+.video-card:hover .thumbnail {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
 /* ==== VIDEO CARD ==== */
 .video-card {
     cursor: pointer;
@@ -484,7 +502,7 @@ form:focus-within input.form-control {
 
 .video-card:hover .progress-fill {
     width: 100%;
-    transition: width 10s ease;
+    transition: width 50s ease;
 }
 
 .video-duration {

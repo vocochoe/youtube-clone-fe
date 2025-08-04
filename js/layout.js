@@ -1,7 +1,6 @@
 // ============================
 // 공통 레이아웃 로드 & 초기화
 // ============================
-
 document.addEventListener("DOMContentLoaded", async () => {
     try {
         const { headerHtml, sidebarHtml } = await loadPartials(); // 별도 함수 사용
@@ -26,7 +25,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         handleResize();
         renderSubscriptions(subscriptionList);
 
-        //window.addEventListener('resize', handleResize);
+        window.addEventListener('resize', handleResize);
         initGlobalClickHandler(); // 외부 클릭 이벤트 (사이드바/프로필 메뉴/비디오 메뉴 닫기)
         initSearch();
 

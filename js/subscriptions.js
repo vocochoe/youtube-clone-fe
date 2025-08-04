@@ -52,6 +52,9 @@ function renderSubscribedVideos(videoList, viewMode = "grid") {
         <div class="video-card" data-id="${video.id}" role="button">
             <div class="thumbnail-wrapper position-relative mb-3">
                 <img src="${video.thumbnail}" class="img-fluid thumbnail" alt="썸네일">
+                <video class="preview-video position-absolute top-0 start-0 w-100 h-100" muted loop preload="auto">
+                    <source src="${video.preview}" type="video/mp4">
+                </video>
                 <div class="progress-bg"><div class="progress-fill"></div></div>
                 <span class="video-duration badge bg-dark position-absolute bottom-0 end-0 m-1">${video.duration}</span>
             </div>
@@ -79,6 +82,9 @@ function renderSubscribedVideos(videoList, viewMode = "grid") {
             <!-- 썸네일 -->
             <div class="thumbnail-wrapper position-relative me-3" style="width: 320px; flex-shrink: 0;">
                 <img src="${video.thumbnail}" class="img-fluid thumbnail" alt="썸네일">
+                <video class="preview-video position-absolute top-0 start-0 w-100 h-100" muted loop preload="auto">
+                    <source src="${video.preview}" type="video/mp4">
+                </video>
                 <div class="progress-bg"><div class="progress-fill"></div></div>
                 <span class="video-duration badge bg-dark position-absolute bottom-0 end-0 m-1">${video.duration}</span>
             </div>
@@ -112,6 +118,24 @@ function renderSubscribedVideos(videoList, viewMode = "grid") {
     });
 
     container.appendChild(fragment);
+    initThumbnailPreview();
+}
+
+function initThumbnailPreview() {
+    document.querySelectorAll(".video-card").forEach(card => {
+        const video = card.querySelector(".preview-video");
+        if (!video) return;
+
+        card.addEventListener("mouseenter", () => {
+            video.currentTime = 0;
+            video.play().catch(() => {});
+        });
+
+        card.addEventListener("mouseleave", () => {
+            video.pause();
+            video.currentTime = 0;
+        });
+    });
 }
 
 // 초기 실행
