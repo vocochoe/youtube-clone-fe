@@ -6,12 +6,16 @@ HTML, CSS, JavaScript(순수 JS)와 Bootstrap5를 활용하여 **반응형 웹 �
 - **메인 페이지**: 영상 목록, 카테고리 바, 반응형 사이드바
 - **구독 페이지**: 구독 채널 영상 필터링 + 최신순 정렬
 - **영상 상세 페이지**: iframe, 좋아요/싫어요, 댓글 작성 및 추천 영상
+<br/>  
 
 ---
+
 
 ## 🔗 배포 링크
 
 [https://vocochoe.github.io/youtube-clone-fe/](https://vocochoe.github.io/youtube-clone-fe/)
+
+<br/>  
 
 ---
 
@@ -46,6 +50,8 @@ HTML, CSS, JavaScript(순수 JS)와 Bootstrap5를 활용하여 **반응형 웹 �
 - **반응형 사이드바 (collapsed / overlay / mobile)**
 - **전역 검색 처리**: 다른 페이지에서도 검색 시 `index.html?search=keyword` 이동
 
+<br/>  
+
 ---
 
 ## 📂 폴더 구조
@@ -75,6 +81,8 @@ youtube-clone-fe
 └─ README.md
 ```
 
+<br/>  
+
 ---
 
 ## 🛠 기술 스택
@@ -83,6 +91,8 @@ youtube-clone-fe
 - **Bootstrap 5**
 - **IndexedDB** (댓글 저장)
 - **GitHub Pages** (배포)
+
+<br/>  
 
 ---
 
@@ -96,11 +106,15 @@ git clone https://github.com/vocochoe/youtube-clone-fe.git
    - VS Code Live Server 사용 추천 
 3. GitHub Pages 배포 시 /youtube-clone-fe/ 경로 기반으로 동작
 
+<br/>  
+
 ---
 
 ## 📸 프로젝트 시연
 
 *(스크린샷 또는 시연 GIF 추가 예정)*
+
+<br/>  
 
 ---
 
@@ -113,6 +127,8 @@ git clone https://github.com/vocochoe/youtube-clone-fe.git
   - `Style` : 코드 스타일/디자인 수정
   - `Refactor` : 코드 구조 리팩토링
   - `Remove` : 파일/코드 삭제
+ 
+<br/>  
 
 ---
 
