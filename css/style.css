@@ -544,7 +544,6 @@ form:focus-within input.form-control {
 }
 
 .video-section {
-    max-width: 1280px;
     margin: 0 auto;
 }
 
@@ -738,27 +737,61 @@ form:focus-within input.form-control {
     line-height: 1.5;
 }
 
+
+/* ==== COMMENT ==== */
 .comment-profile {
     width: 40px;
     height: 40px;
     object-fit: cover;
 }
 
+.comment-input .btn-sm {
+    border-radius: 20px;
+}
+
 .comment-text-input {
-    border: none;
-    border-bottom: 1px solid #555;
+    border: none !important;
+    border-bottom: 1px solid #555 !important;
     border-radius: 0;
     padding-left: 0;
     background-color: transparent;
-    transition: border-color 0.2s, border-width 0.2s;
 }
 
 .comment-text-input:focus {
-    border-bottom: 2px solid #fff;
+    border-bottom: 1px solid #fff !important;
     outline: none;
-    box-shadow: none;
+    transition: border-color 0.2s, border-width 4s;
 }
 
-.comment-input .btn-sm {
+#comment-buttons {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.comment-input.focused #comment-buttons {
+    display: flex;
+    opacity: 1;
+}
+
+.cancel-btn {
+    background: transparent;
+    color: #aaa;
+    border: none !important;
+}
+
+.cancel-btn:hover {
+    color: #fff;
+    background: transparent;
+}
+
+.comment-submit-btn {
+    opacity: 0.6;
     border-radius: 20px;
+}
+
+.comment-submit-btn.active {
+    opacity: 1;
+    background-color: #3ea6ff;
+    color: white;
 }
