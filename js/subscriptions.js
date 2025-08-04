@@ -145,4 +145,6 @@ window.addEventListener('DOMContentLoaded', () => {
             renderSubscribedVideos(subscribedVideos, currentView);
         }
     });
+
+    initSearch();
 });

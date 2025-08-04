@@ -68,6 +68,7 @@ function renderVideoCards(videoData) {
             </div>
         </div>
         `;
+
         fragment.appendChild(col);
 
 
@@ -93,6 +94,26 @@ function renderCategoryBar(categories) {
         btn.textContent = cat.name;
         wrapper.appendChild(btn);
     });
+}
+
+function handleSearch(keyword) {
+    const row = document.querySelector(".row");
+
+    const filtered = videoDataList.filter(video =>
+        video.title.toLowerCase().includes(keyword) ||
+        video.channel.toLowerCase().includes(keyword) ||
+        video.description.toLowerCase().includes(keyword)
+    );
+
+    renderVideoCards(filtered);
+
+    if (filtered.length === 0) {
+        row.innerHTML = `
+            <div class="col-12 text-center text-secondary mt-5">
+                검색 결과가 없습니다.
+            </div>
+        `;
+    }
 }
 
 // ============================
