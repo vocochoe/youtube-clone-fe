@@ -257,6 +257,10 @@ function renderRecommendedVideos(excludeId) {
         card.innerHTML = `
             <div class="thumbnail-wrapper position-relative" style="width: 180px; flex-shrink: 0;">
                 <img src="${video.thumbnail}" class="img-fluid thumbnail" alt="썸네일">
+                <video class="preview-video position-absolute top-0 start-0 w-100 h-100" muted loop preload="metadata">
+                    <source src="${video.preview}" type="video/mp4">
+                </video>
+                 <div class="progress-bg"><div class="progress-fill"></div></div>
                 <span class="video-duration badge bg-dark position-absolute bottom-0 end-0 m-1">${video.duration}</span>
             </div>
             <div class="video-info flex-grow-1">
@@ -273,6 +277,7 @@ function renderRecommendedVideos(excludeId) {
     });
 
     container.appendChild(fragment);
+    initThumbnailPreview();
 }
 
 // ============================
@@ -356,6 +361,24 @@ function getRelativeTime(absoluteTime) {
     if (weeks < 5) return `${weeks}주 전`;
     if (months < 12) return `${months}개월 전`;
     return `${years}년 전`;
+}
+
+
+function initThumbnailPreview() {
+    document.querySelectorAll(".video-card").forEach(card => {
+        const video = card.querySelector(".preview-video");
+        if (!video) return;
+
+        card.addEventListener("mouseenter", () => {
+            video.currentTime = 0;
+            video.play().catch(() => {});
+        });
+
+        card.addEventListener("mouseleave", () => {
+            video.pause();
+            video.currentTime = 0;
+        });
+    });
 }
 
 // ============================
