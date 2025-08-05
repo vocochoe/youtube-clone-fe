@@ -52,7 +52,7 @@ function renderSubscribedVideos(videoList, viewMode = "grid") {
         <div class="video-card" data-id="${video.id}" role="button">
             <div class="thumbnail-wrapper position-relative mb-3">
                 <img src="${video.thumbnail}" class="img-fluid thumbnail" alt="썸네일">
-                <video class="preview-video position-absolute top-0 start-0 w-100 h-100" muted loop preload="auto">
+                <video class="preview-video position-absolute top-0 start-0 w-100 h-100" muted loop preload="metadata">
                     <source src="${video.preview}" type="video/mp4">
                 </video>
                 <div class="progress-bg"><div class="progress-fill"></div></div>
@@ -82,7 +82,7 @@ function renderSubscribedVideos(videoList, viewMode = "grid") {
             <!-- 썸네일 -->
             <div class="thumbnail-wrapper position-relative me-3" style="width: 320px; flex-shrink: 0;">
                 <img src="${video.thumbnail}" class="img-fluid thumbnail" alt="썸네일">
-                <video class="preview-video position-absolute top-0 start-0 w-100 h-100" muted loop preload="auto">
+                <video class="preview-video position-absolute top-0 start-0 w-100 h-100" muted loop preload="metadata">
                     <source src="${video.preview}" type="video/mp4">
                 </video>
                 <div class="progress-bg"><div class="progress-fill"></div></div>
